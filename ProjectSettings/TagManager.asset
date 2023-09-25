@@ -8,6 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
+<<<<<<< HEAD
   - 
   - Water
   - UI
@@ -15,6 +16,15 @@ TagManager:
   - 
   - 
   - 
+=======
+  - Wall
+  - Water
+  - UI
+  - Rock
+  - Character
+  - Bullet
+  - Monster
+>>>>>>> be4bd8e5bc2cab1f9e1e679fdc017a7167087b7a
   - 
   - 
   - 
