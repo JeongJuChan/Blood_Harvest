@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceManager : MonoBehaviour
+public class ResourceManager
 {
     private static ResourceManager _instance;
-    public static ResourceManager Instance { get => _instance; }
+    public static ResourceManager Instance { get => GetInstance(); }
 
-    private void Awake()
+    private static ResourceManager GetInstance()
     {
-        _instance = this;
+        if (_instance == null)
+            _instance = new ResourceManager();
+
+        return _instance;
     }
 
     public T Load<T>(string path) where T : Object

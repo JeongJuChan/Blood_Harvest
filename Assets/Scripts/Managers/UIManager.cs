@@ -25,9 +25,7 @@ public class UIManager
     private static UIManager GetInstnace()
     {
         if (_instance == null)
-        {
             _instance = new UIManager();
-        }
 
         return _instance;
     }
