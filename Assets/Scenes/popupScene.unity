@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 543109730}
   - component: {fileID: 543109729}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: LevelUpText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -336,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1168361079}
   m_Layer: 5
-  m_Name: LevelUpText
+  m_Name: LevelUpTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
