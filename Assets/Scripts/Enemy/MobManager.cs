@@ -7,6 +7,7 @@ public class MobManager : MonoBehaviour
     public GameObject[] zombies;
 
     List<GameObject>[] pools;
+
     private void Awake()
     {
         pools = new List<GameObject>[zombies.Length];
