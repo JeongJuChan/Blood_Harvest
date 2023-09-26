@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public bool isLive = true;
+    private float _speed;
+    private float _health;
+    private float _maxHealth;
 
-    private float _speed = 2;
+    public bool isLive;
+
     public Rigidbody2D target;
+    public RuntimeAnimatorController[] animController;
 
     Rigidbody2D rb;
     SpriteRenderer spr;
-    void Start()
+    Animator anim;
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
+
     private void FixedUpdate()
     {
         if (!isLive) return;
@@ -25,14 +33,26 @@ public class Enemy : MonoBehaviour
         rb.MovePosition(rb.position + nextdir); 
         rb.velocity = Vector2.zero;    
     }
+
     private void LateUpdate()
     {
         if (!isLive) return;
 
         spr.flipX = target.position.x < rb.position.x;
     }
+
     private void OnEnable()
     {
         target = GameManager.instance.player.GetComponent<Rigidbody2D>();
+        isLive = true;
+        _health = _maxHealth;
+    }
+
+    public void Init(SpawnData data)
+    {
+        anim.runtimeAnimatorController = animController[data.zombieType];
+        _speed = data.zombieSpeed;
+        _maxHealth = data.zombieHealth;
+        _health = data.zombieHealth;
     }
 }

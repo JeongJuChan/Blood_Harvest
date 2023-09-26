@@ -714,6 +714,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: []
+  spawnData:
+  - spawnTime: 0.9
+    zombieType: 0
+    zombieHealth: 5
+    zombieSpeed: 2.1
+  - spawnTime: 0.5
+    zombieType: 1
+    zombieHealth: 8
+    zombieSpeed: 1.5
 --- !u!1 &1533760002
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,6 +785,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mob: {fileID: 1654592363}
   player: {fileID: 635934192}
+  gameTime: 0
+  maxGameTime: 20
 --- !u!4 &1537494073
 Transform:
   m_ObjectHideFlags: 0
@@ -853,7 +864,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombies:
   - {fileID: 5609927108665697554, guid: 48f403671f6d6cb46808dbfa875ad018, type: 3}
-  - {fileID: 8550351901980211181, guid: a2fb5dd112b7f5d47b6cd9b6606af007, type: 3}
 --- !u!4 &1654592364
 Transform:
   m_ObjectHideFlags: 0
