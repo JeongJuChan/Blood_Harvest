@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!224 &219048004 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4569224239089820729, guid: 60b2c4b1c498da14b975980b38197c2b, type: 3}
+  m_PrefabInstance: {fileID: 1643744424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &526173436
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,6 +640,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7913764397245847436, guid: 60b2c4b1c498da14b975980b38197c2b, type: 3}
+      propertyPath: weaponParent
+      value: 
+      objectReference: {fileID: 219048004}
     - target: {fileID: 7913764397245847436, guid: 60b2c4b1c498da14b975980b38197c2b, type: 3}
       propertyPath: datas.Array.size
       value: 0

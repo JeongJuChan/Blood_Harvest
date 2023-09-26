@@ -18,14 +18,33 @@ public class UpgradeItem : MonoBehaviour
 
     void Start()
     {
-        Init();
+        SetItemInfoTexts();
     }
 
-    private void Init()
+    private void SetItemInfoTexts()
     {
         weaponImage.sprite = data.icon;
         upgradeNameText.text = data.displayName;
         descriptionText.text = data.description;
+
+        WeaponData tempData = null;
+        foreach (WeaponData weaponData in WeaponManager.Instance.WeaponDatas)
+        {
+            if (data.displayName.Equals(weaponData.displayName))
+            {
+                tempData = weaponData;
+                break;
+            }
+        }
+
+        if (data.type == WeaponType.DefaultUpgrade)
+        {
+            levelText.text = tempData == null ? $"Level : {data.level}" : $"Level : {tempData.level}";
+        }
+        else
+        {
+            levelText.text = tempData == null ? levelText.text : $"Level : {tempData.level}";
+        }
     }
 
     
