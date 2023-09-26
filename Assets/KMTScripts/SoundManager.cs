@@ -9,6 +9,14 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioMixer masterMixer;
     [SerializeField] Slider bgmSlider;
     [SerializeField] Slider sfxSlider;
+    private void Start()
+    {
+        float sound;
+        masterMixer.GetFloat("BGM", out sound);
+        bgmSlider.value = sound;
+        masterMixer.GetFloat("SFX", out sound);
+        sfxSlider.value = sound;
+    }
     public void BGMControl()
     {
         float sound = bgmSlider.value;
