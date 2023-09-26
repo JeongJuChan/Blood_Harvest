@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public MobManager mob;
-    public TestPlayer player;
+    public Player player;
 
     public float gameTime;
     public float maxGameTime = 2 * 10f;
