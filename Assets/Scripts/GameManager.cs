@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public Player player;
 
     public float gameTime;
-    public float maxGameTime = 2 * 10f;
+    public float maxGameTime = 3 * 10f;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
         if (gameTime > maxGameTime)
         {
-            gameTime = maxGameTime;
+            Time.timeScale = 0;
         }
     }
 }
