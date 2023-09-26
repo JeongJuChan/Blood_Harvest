@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager_KMT : MonoBehaviour
+public class GameOverSc : MonoBehaviour
 {
     [SerializeField] GameObject SettingButton;
     [SerializeField] GameObject GameOverImage;
-
-    private void Update()
+    public void GameOver()
     {
-        if(GameOverImage.activeSelf)
+        GameOverImage.SetActive(true);
+        if (GameOverImage.activeSelf)
         {
             SettingButton.SetActive(false);
         }
