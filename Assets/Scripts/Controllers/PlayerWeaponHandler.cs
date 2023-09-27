@@ -49,22 +49,16 @@ public class PlayerWeaponHandler : MonoBehaviour
             AdditionalWeaponType weaponType = AdditionalWeaponType.Shovel;
             foreach (AdditionalWeaponType type in Enum.GetValues(typeof(AdditionalWeaponType)))
             {
-                if (weaponDataInstance.displayName.Equals(type))
+                if (data.name.Equals(type.ToString()))
                 {
                     weaponType = type;
                     break;
                 }
             }
 
-            switch (weaponType)
-            {
-                case AdditionalWeaponType.Shovel:
-                    break;
-                case AdditionalWeaponType.Rake:
-                    break;
-                case AdditionalWeaponType.Sickle:
-                    break;
-            }
+            Shooter shooter = AddShooter(weaponType);
+
+            shooter.SetData(data);
         }
         else
         {
@@ -76,6 +70,25 @@ public class PlayerWeaponHandler : MonoBehaviour
                 weaponDataInstance.level++;
             }
         }
+    }
+
+    private Shooter AddShooter(AdditionalWeaponType weaponType)
+    {
+        Shooter shooter = null;
+        switch (weaponType)
+        {
+            case AdditionalWeaponType.Shovel:
+                shooter = gameObject.AddComponent<ShovelShooter>();
+                break;
+            case AdditionalWeaponType.Rake:
+                shooter = gameObject.AddComponent<RakeShooter>();
+                break;
+            case AdditionalWeaponType.Sickle:
+                shooter = gameObject.AddComponent<SickleShooter>();
+                break;
+        }
+
+        return shooter;
     }
 
     private bool IsWeaponAlreadyExist(string weaponName, out WeaponData weaponData)

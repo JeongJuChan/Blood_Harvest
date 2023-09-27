@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Sickle : Weapon
 {
-    protected override void Move()
+    protected override IEnumerator Move()
     {
+        yield return null;
     }
+
 
     protected override void OnCollide(Collider2D collision)
     {
