@@ -15,10 +15,26 @@ public class UpgradeItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI upgradeNameText;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI descriptionText;
+    [SerializeField] private Button selectButton;
+
+    private void OnEnable()
+    {
+        selectButton.onClick.AddListener(OnUpgrade);
+    }
 
     void Start()
     {
         SetItemInfoTexts();
+    }
+
+    private void OnDisable()
+    {
+        selectButton.onClick.RemoveListener(OnUpgrade);
+    }
+
+    private void OnUpgrade()
+    {
+        WeaponManager.Instance.UpgradeWeapon(data);
     }
 
     private void SetItemInfoTexts()

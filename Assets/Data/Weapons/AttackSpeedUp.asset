@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: "\uACF5\uACA9 \uC18D\uB3C4 \uC5C5"
   description: "\uAE30\uBCF8 \uBB34\uAE30 \uACF5\uACA9 \uC18D\uB3C4 \uC99D\uAC00"
-  icon: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  attack: 0
-  attackSpeed: 1.2
+  type: 0
   maxLevel: 5
   level: 1
+  icon: {fileID: 563336626, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  attack: 0
+  attackSpeed: 1.2
   count: 0
-  scale: 0.1
+  scale: 0
