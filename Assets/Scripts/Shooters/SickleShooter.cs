@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SickleShooter : Shooter
 {
-    protected override void Shoot()
+    protected override IEnumerator Shoot()
     {
         throw new System.NotImplementedException();
     }

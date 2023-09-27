@@ -9,13 +9,15 @@ public class ShovelShooter : Shooter
 
     private List<Shovel> shovels = new List<Shovel>();
 
-    protected override void Shoot()
+    protected override IEnumerator Shoot()
     {
         while (shovels.Count < Data.count)
         {
             Shovel shovel = CreateNewWeapon() as Shovel;
             shovels.Add(shovel);
         }
+
+        currentElapsedTime += Time.deltaTime;
 
         float angleUnit = ANGLE / Data.count;
 
@@ -42,6 +44,10 @@ public class ShovelShooter : Shooter
         }
 
         isEven = !isEven;
+
+
+        yield return CoroutineRef.GetWaitForSeconds(timePerAttack);
+        StartCoroutine(Shoot());
     }
 
     private void SetShovelState(float angle, int i)

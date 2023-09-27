@@ -15,11 +15,16 @@ public class UpgradeItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI upgradeNameText;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI descriptionText;
-    [SerializeField] private Button selectButton;
+    private Button _selectButton;
+
+    private void Awake()
+    {
+        _selectButton = GetComponent<Button>();
+    }
 
     private void OnEnable()
     {
-        selectButton.onClick.AddListener(OnUpgrade);
+        _selectButton.onClick.AddListener(OnUpgrade);
     }
 
     void Start()
@@ -29,7 +34,7 @@ public class UpgradeItem : MonoBehaviour
 
     private void OnDisable()
     {
-        selectButton.onClick.RemoveListener(OnUpgrade);
+        _selectButton.onClick.RemoveListener(OnUpgrade);
     }
 
     private void OnUpgrade()

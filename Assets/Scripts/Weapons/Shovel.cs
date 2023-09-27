@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Shovel : Weapon
 {
-    protected override void Move()
+    private bool canMove = false;
+
+    private void OnEnable()
     {
-        transform.Translate(transform.up * moveSpeed * Time.deltaTime);
+        canMove = true;
+    }
+
+    private void OnDisable()
+    {
+        canMove = false;
+    }
+
+    protected override IEnumerator Move()
+    {
+        while (canMove)
+        {
+            transform.position += transform.up * moveSpeed * Time.deltaTime;
+            yield return null;
+        }
     }
 
     protected override void OnCollide(Collider2D collision)
     {
-        // 충돌 시 데미지 주기
-        //collision.GetComponent<Enemy>().OnDamaged(damage);
+        base.OnCollide(collision);
         gameObject.SetActive(false);
     }
 }

@@ -422,9 +422,9 @@ GameObject:
   - component: {fileID: 3519847760850919295}
   - component: {fileID: 2993401087263166887}
   - component: {fileID: 5796571656572640988}
-  - component: {fileID: -7583660132451997388}
+  - component: {fileID: 3624845143977543733}
   m_Layer: 5
-  m_Name: Rake
+  m_Name: SickleUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290c23c2d7db3294ba37a9d9ac52c8ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: e224642bfc6078043a4f17bbeefbc2b4, type: 2}
+  data: {fileID: 11400000, guid: b61d6c13735a5ac41b09ee722bb61a4e, type: 2}
   weaponImage: {fileID: 3784159720660527541}
   upgradeNameText: {fileID: 1587253484131476954}
   levelText: {fileID: 3211255716978639484}
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-7583660132451997388
+--- !u!114 &3624845143977543733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
