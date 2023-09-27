@@ -10,7 +10,7 @@ public abstract class Shooter : MonoBehaviour
 
     [Header("Shooting Interval")]
     [SerializeField] protected float timePerAttack = 1f;
-    private float currentElapsedTime = 0f;
+    protected float currentElapsedTime = 0f;
 
     [Header("Weapon")]
     protected const string WEAPON_PATH = "Weapons/";
@@ -18,23 +18,14 @@ public abstract class Shooter : MonoBehaviour
 
     protected void Awake()
     {
-         weapon = GetWeapon();
+        weapon = GetWeapon();
     }
 
     protected void Start()
     {
         weapon.SetDamage(Data.attack);
-    }
-
-    protected void Update()
-    {
-        if (currentElapsedTime < timePerAttack)
-            currentElapsedTime += Time.deltaTime;
-        else
-        {
-            Shoot();
-            currentElapsedTime = 0f;
-        }
+        weapon.SetMovingDurtaion(timePerAttack);
+        StartCoroutine(Shoot());
     }
 
     public void SetData(WeaponData data)
@@ -44,7 +35,8 @@ public abstract class Shooter : MonoBehaviour
 
     protected Weapon GetWeapon()
     {
-        string originName = name.Substring(0, name.Length - base.name.Length);
+        string typeName = GetType().Name;
+        string originName = typeName.Substring(0, typeName.Length - typeof(Shooter).Name.Length);
         return Resources.Load<Weapon>($"{WEAPON_PATH}{originName}");
     }
 
@@ -53,5 +45,5 @@ public abstract class Shooter : MonoBehaviour
         return Instantiate(weapon.gameObject, transform.position, Quaternion.identity, transform).GetComponent<Weapon>();
     }
 
-    protected abstract void Shoot();
+    protected abstract IEnumerator Shoot();
 }

@@ -11,15 +11,16 @@ public abstract class Weapon : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] protected float moveSpeed = 1f;
+    protected float movingDuration;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         collider = GetComponent<Collider2D>();
     }
 
-    protected void Update()
+    private void Start()
     {
-        Move();
+        StartCoroutine(Move());
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)
@@ -32,6 +33,17 @@ public abstract class Weapon : MonoBehaviour
         this.damage = damage;
     }
 
-    protected abstract void OnCollide(Collider2D collision);
-    protected abstract void Move();
+    public void SetMovingDurtaion(float duration)
+    {
+        movingDuration = duration;
+    }
+
+    protected virtual void OnCollide(Collider2D collision)
+    {
+        // 충돌 시 데미지 주기
+        //collision.GetComponent<Enemy>().OnDamaged(damage);
+    }
+
+    protected abstract IEnumerator Move();
+
 }
