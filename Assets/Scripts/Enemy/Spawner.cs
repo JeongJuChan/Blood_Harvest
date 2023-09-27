@@ -9,12 +9,14 @@ public class Spawner : MonoBehaviour
 
     float timer;
     int level;
-    private bool _isBoss;
+    private bool _isBoss1;
+    private bool _isBoss2;
 
     private void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
-        _isBoss = false;
+        _isBoss1 = false;
+        _isBoss2 = false;
     }
 
     private void Update()
@@ -36,23 +38,43 @@ public class Spawner : MonoBehaviour
         
         switch (level)
         {
-            case 0:
+            case 0:     // 1번 근접몹
                 enemy.GetComponent<Enemy>().Init(spawnData[0]);
                 break;
-            case 1:
+            case 1:     // 1번 근접몹 + 2번 근접몹
                 enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(0, 2)]);
                 break;
-            case 2:
+            case 2:     // 1번 근접몹 + 2번 근접몹 + 3번 원거리몹
                 enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(0, 3)]);
                 break;
-            case 3:
+            case 3:     // 2번 근접몹 + 3번 원거리몹
                 enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(1, 3)]);
                 break;
-            case 4:
-                if (!_isBoss)
+            case 4:     // 4번 보스몹 1마리 + 1번 근접몹 + 2번 근접몹 + 3번 원거리몹
+                if (!_isBoss1)
                 {
                     enemy.GetComponent<Enemy>().Init(spawnData[3]);
-                    _isBoss = true;
+                    _isBoss1 = true;
+                }
+                else enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(0, 3)]);
+                break;
+            case 5:     // 강해진 2번 근접몹
+                enemy.GetComponent<Enemy>().Init(spawnData[1]);
+                break;
+            case 6:     // 강해진 3번 원거리몹
+                enemy.GetComponent<Enemy>().Init(spawnData[2]);
+                break;
+            case 7:     // 강해진 1번 근접몹 + 강해진 3번 원거리몹
+
+                break;
+            case 8:     // 강해진 1번 근접몹 + 강해진 2번 근접몹 + 강해진 3번 원거리몹
+                enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(0, 3)]);
+                break;
+            case 9:     // 5번 보스몹 1마리 + 강해진 2번 근접몹 + 강해진 3번 원거리몹
+                if (!_isBoss2)
+                {
+                    enemy.GetComponent<Enemy>().Init(spawnData[4]);
+                    _isBoss2 = true;
                 }
                 else enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(1, 3)]);
                 break;
