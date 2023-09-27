@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 4060377460280455353}
   - component: {fileID: 8442663212490107491}
   m_Layer: 3
-  m_Name: LineTile
+  m_Name: WallTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
