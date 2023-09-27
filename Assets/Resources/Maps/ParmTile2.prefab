@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 848345841511362117}
   - component: {fileID: 3975862989967339821}
   m_Layer: 3
-  m_Name: LineTile
+  m_Name: WallTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3135,7 +3135,7 @@ Transform:
   - {fileID: 4423399220170601847}
   - {fileID: 1612178182847162933}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &6913691497620225796
 Grid:
