@@ -15,8 +15,6 @@ public class WeaponManager
 
     public event Action<WeaponData> WeaponUpgradeEvent;
 
-
-
     private static WeaponManager GetInstance()
     {
         if (_instance == null)
@@ -45,75 +43,8 @@ public class WeaponManager
         return false;
     }
 
-    /*public void UpgradeItem(WeaponData data)
+    public void UpgradeWeapon(WeaponData data)
     {
-        WeaponData weaponDataInstance = null;
-
-        if (_datas.Count == 0)
-        {
-            weaponDataInstance = UnityEngine.Object.Instantiate(data);
-            _datas.Add(weaponDataInstance);
-        }
-        else
-        {
-            if (IsWeaponAlreadyExist(data.displayName, out WeaponData weaponData))
-            {
-                weaponDataInstance = weaponData;
-            }
-            else
-            {
-                weaponDataInstance = UnityEngine.Object.Instantiate(data);
-                _datas.Add(weaponDataInstance);
-
-            }
-        }
-
-
-
-        if (weaponDataInstance.type == WeaponType.AdditionalUpgrade)
-        {
-            AdditionalWeaponType weaponType = AdditionalWeaponType.Shovel;
-            foreach (AdditionalWeaponType type in Enum.GetValues(typeof(AdditionalWeaponType)))
-            {
-                if (weaponDataInstance.displayName.Equals(type))
-                {
-                    weaponType = type;
-                    break;
-                }
-            }
-
-            switch (weaponType)
-            {
-                case AdditionalWeaponType.Shovel:
-
-                    break;
-                case AdditionalWeaponType.Rake:
-                    break;
-                case AdditionalWeaponType.Sickle:
-                    break;
-            }
-        }
-        else
-        {
-
-        }
-
-
-
+        WeaponUpgradeEvent?.Invoke(data);
     }
-
-    private bool IsWeaponAlreadyExist(string weaponName, out WeaponData weaponData)
-    {
-        foreach (var item in _datas)
-        {
-            if (item.displayName.Equals(weaponName))
-            {
-                weaponData = item;
-                return true;
-            }
-        }
-
-        weaponData = null;
-        return false;
-    }*/
 }
