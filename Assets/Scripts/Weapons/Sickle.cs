@@ -9,6 +9,7 @@ public class Sickle : Weapon
 
     protected override IEnumerator Move()
     {
+        transform.rotation = Quaternion.Euler(0, 0, -currentAngle);
 
         if (currentAngle < 360f)
         {
