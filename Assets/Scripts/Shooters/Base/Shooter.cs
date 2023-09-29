@@ -14,18 +14,19 @@ public abstract class Shooter : MonoBehaviour
 
     [Header("Weapon")]
     protected const string WEAPON_PATH = "Weapons/";
+    protected Weapon weaponPrefab;
     protected Weapon weapon;
+    protected float upgradeValue;
+    
 
     protected void Awake()
     {
-        weapon = GetWeapon();
+        weaponPrefab = GetWeapon();
     }
 
     protected void Start()
     {
-        weapon.SetDamage(Data.attack);
-        weapon.SetMovingDurtaion(timePerAttack);
-        StartCoroutine(Shoot());
+        Shoot();
     }
 
     public void SetData(WeaponData data)
@@ -42,8 +43,17 @@ public abstract class Shooter : MonoBehaviour
 
     protected Weapon CreateNewWeapon()
     {
-        return Instantiate(weapon.gameObject, transform.position, Quaternion.identity, transform).GetComponent<Weapon>();
+        return Instantiate(weaponPrefab.gameObject, transform.position, Quaternion.identity, transform).GetComponent<Weapon>();
     }
 
-    protected abstract IEnumerator Shoot();
+    protected abstract void Shoot();
+
+    public virtual void Upgrade()
+    {
+        Data.level++;
+        Apply();
+        WeaponManager.Instance.OnUpgraded(Data);
+    }
+
+    protected abstract void Apply();
 }

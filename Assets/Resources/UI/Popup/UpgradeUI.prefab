@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8385892862405889556}
   - component: {fileID: 5062998335755298824}
   - component: {fileID: 6650372635517364283}
-  - component: {fileID: 7913764397245847436}
+  - component: {fileID: 5187790970910455800}
   m_Layer: 5
   m_Name: UpgradeUI
   m_TagString: Untagged
@@ -34,7 +34,7 @@ RectTransform:
   m_Children:
   - {fileID: 9022186017566013841}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7913764397245847436
+--- !u!114 &5187790970910455800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,11 +113,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1672715311306066103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2d15b3ef067bdc4fb50243f2e50818a, type: 3}
+  m_Script: {fileID: 11500000, guid: 35ad6127a421b774eaba7d392f30e8da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponParent: {fileID: 4569224239089820729}
-  _itemCount: 4
+  _itemCount: 6
 --- !u!1 &1965730339519782817
 GameObject:
   m_ObjectHideFlags: 0

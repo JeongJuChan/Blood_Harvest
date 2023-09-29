@@ -28,6 +28,7 @@ public class UpgradeUI : UIBase
             if (isMax)
             {
                 upgradeItems.Remove(upgradeItems[index]);
+                count--;
                 continue;
             }
 

@@ -6,16 +6,16 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     [Header("Collision")]
-    protected Collider2D collider;
+    protected BoxCollider2D collider;
     protected float damage;
 
     [Header("Movement")]
     [SerializeField] protected float moveSpeed = 1f;
-    protected float movingDuration;
+    protected Transform offsetTransform;
 
     protected virtual void Awake()
     {
-        collider = GetComponent<Collider2D>();
+        collider = GetComponentInChildren<BoxCollider2D>();
     }
 
     private void Start()
@@ -33,9 +33,9 @@ public abstract class Weapon : MonoBehaviour
         this.damage = damage;
     }
 
-    public void SetMovingDurtaion(float duration)
+    public void SetOffsetTransform(Transform shooterTrans)
     {
-        movingDuration = duration;
+        offsetTransform = shooterTrans;
     }
 
     protected virtual void OnCollide(Collider2D collision)
@@ -46,4 +46,5 @@ public abstract class Weapon : MonoBehaviour
 
     protected abstract IEnumerator Move();
 
+    
 }

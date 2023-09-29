@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,21 @@ public class ShovelShooter : Shooter
 
     private List<Shovel> shovels = new List<Shovel>();
 
-    protected override IEnumerator Shoot()
+    [SerializeField] private int upgradeCount = 1;
+
+    protected override void Shoot()
+    {
+        upgradeValue = upgradeCount;
+        StartCoroutine(CoShoot());
+    }
+
+    private IEnumerator CoShoot()
     {
         while (shovels.Count < Data.count)
         {
             Shovel shovel = CreateNewWeapon() as Shovel;
+            weapon = shovel;
+            shovel.SetDamage(Data.attack);
             shovels.Add(shovel);
         }
 
@@ -47,7 +58,7 @@ public class ShovelShooter : Shooter
 
 
         yield return CoroutineRef.GetWaitForSeconds(timePerAttack);
-        StartCoroutine(Shoot());
+        StartCoroutine(CoShoot());
     }
 
     private void SetShovelState(float angle, int i)
@@ -55,5 +66,15 @@ public class ShovelShooter : Shooter
         shovels[i].gameObject.SetActive(true);
         shovels[i].transform.position = transform.position;
         shovels[i].transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    public override void Upgrade()
+    {
+        base.Upgrade();
+    }
+
+    protected override void Apply()
+    {
+        Data.count += (int)upgradeValue;
     }
 }
