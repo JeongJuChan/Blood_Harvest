@@ -979,6 +979,18 @@ MonoBehaviour:
     zombieType: 4
     zombieHealth: 1000
     zombieSpeed: 2
+  - spawnTime: 1
+    zombieType: 5
+    zombieHealth: 30
+    zombieSpeed: 2.5
+  - spawnTime: 0.5
+    zombieType: 6
+    zombieHealth: 50
+    zombieSpeed: 2
+  - spawnTime: 1.2
+    zombieType: 7
+    zombieHealth: 25
+    zombieSpeed: 1.7
 --- !u!1 &1533760002
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,9 +22,9 @@ public class Spawner : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        level = Mathf.FloorToInt(GameManager.instance.gameTime / 6f);
+        level = Mathf.FloorToInt(GameManager.instance.gameTime / 3f);
 
-        if (timer > 1f)
+        if (timer > 0.5f)
         {
             Spawn();
             timer = 0f;
@@ -59,16 +59,18 @@ public class Spawner : MonoBehaviour
                 else enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(0, 3)]);
                 break;
             case 5:     // 강해진 2번 근접몹
-                enemy.GetComponent<Enemy>().Init(spawnData[1]);
+                enemy.GetComponent<Enemy>().Init(spawnData[6]);
                 break;
             case 6:     // 강해진 3번 원거리몹
-                enemy.GetComponent<Enemy>().Init(spawnData[2]);
+                enemy.GetComponent<Enemy>().Init(spawnData[7]);
                 break;
             case 7:     // 강해진 1번 근접몹 + 강해진 3번 원거리몹
-
+                int i = Random.Range(0, 4);
+                if (i == 0) enemy.GetComponent<Enemy>().Init(spawnData[7]);
+                else enemy.GetComponent<Enemy>().Init(spawnData[5]);
                 break;
             case 8:     // 강해진 1번 근접몹 + 강해진 2번 근접몹 + 강해진 3번 원거리몹
-                enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(0, 3)]);
+                enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(5, 8)]);
                 break;
             case 9:     // 5번 보스몹 1마리 + 강해진 2번 근접몹 + 강해진 3번 원거리몹
                 if (!_isBoss2)
@@ -76,7 +78,7 @@ public class Spawner : MonoBehaviour
                     enemy.GetComponent<Enemy>().Init(spawnData[4]);
                     _isBoss2 = true;
                 }
-                else enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(1, 3)]);
+                else enemy.GetComponent<Enemy>().Init(spawnData[Random.Range(6, 8)]);
                 break;
         }
     }

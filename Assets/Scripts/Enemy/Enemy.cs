@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 public class Enemy : MonoBehaviour
 {
@@ -31,12 +32,9 @@ public class Enemy : MonoBehaviour
 
         Vector2 dir = target.position - rb.position;
         Vector2 nextdir = dir.normalized * _speed * Time.fixedDeltaTime;
-        rb.MovePosition(rb.position + nextdir);
-        rb.velocity = Vector2.zero;
         float distance = Vector2.Distance(rb.position, target.position);
 
-        /*
-        switch (animController[].name)
+        switch (anim.runtimeAnimatorController.name)
         {
             case "AcEnemy 0":
                 rb.MovePosition(rb.position + nextdir);
@@ -47,21 +45,20 @@ public class Enemy : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 break;
             case "AcEnemy 2":
-                if (distance > 10.0f) rb.MovePosition(rb.position + nextdir);
+                if (distance > 3.0f) rb.MovePosition(rb.position + nextdir);
                 else rb.MovePosition(rb.position - nextdir);
                 rb.velocity = Vector2.zero;
                 break;
             case "AcEnemy 3":
-                rb.MovePosition(rb.position + nextdir);
+                if (distance < 8.0f) rb.MovePosition(rb.position + (nextdir * 2.5f));
+                else rb.MovePosition(rb.position + nextdir);
                 rb.velocity = Vector2.zero;
                 break;
             case "AcEnemy 4":
                 rb.MovePosition(rb.position + nextdir);
                 rb.velocity = Vector2.zero;
                 break;
-        }
-        */
-            
+        }          
     }
 
     private void LateUpdate()
@@ -80,7 +77,7 @@ public class Enemy : MonoBehaviour
 
     public void Init(SpawnData data)
     {
-        anim.runtimeAnimatorController = animController[data.zombieType];
+        anim.runtimeAnimatorController = animController[data.zombieType % 5];
         _speed = data.zombieSpeed;
         _maxHealth = data.zombieHealth;
         _health = data.zombieHealth;
