@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        level = Mathf.FloorToInt(GameManager.instance.gameTime / 3f);
+        level = Mathf.FloorToInt(GameManager.instance.gameTime / 2f);
 
         if (timer > 0.5f)
         {
