@@ -45,6 +45,6 @@ public class StartUIManager : MonoBehaviour
     }
     public void GameStart()
     {
-        SceneManager.LoadScene("KMT_GameScene");
+        SceneManager.LoadScene("GameScene");
     }
 }
