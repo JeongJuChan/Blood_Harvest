@@ -17,6 +17,8 @@ public class UpgradeItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     private Button _selectButton;
 
+    public event Action closeEvent;
+
     private void Awake()
     {
         _selectButton = GetComponent<Button>();
@@ -40,6 +42,9 @@ public class UpgradeItem : MonoBehaviour
     private void OnClickUpgradeButton()
     {
         WeaponManager.Instance.UpgradeWeapon(data);
+        closeEvent?.Invoke();
+
+
     }
 
     private void SetItemInfoTexts()

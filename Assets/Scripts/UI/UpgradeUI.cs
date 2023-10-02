@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,9 +11,20 @@ public class UpgradeUI : UIBase
     [SerializeField] private Transform weaponParent;
     [SerializeField] private int _itemCount = 4;
 
+    private List<UpgradeItem> _currentItems = new List<UpgradeItem>(); 
+
     private void Start()
     {
+        GameManager.instance.FreezeGame();
         InstantiateRandomItems();
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var item in _currentItems)
+        {
+            item.closeEvent -= OnUpgradeSelected;
+        }
     }
 
     private void InstantiateRandomItems()
@@ -32,11 +44,21 @@ public class UpgradeUI : UIBase
                 continue;
             }
 
-            Instantiate(upgradeItems[index], weaponParent);
+            UpgradeItem item = Instantiate(upgradeItems[index], weaponParent);
+            item.closeEvent += OnUpgradeSelected;
+            _currentItems.Add(item);
 
             upgradeItems.Remove(upgradeItems[index]);
 
             count--;
         }
+    }
+
+    
+
+    private void OnUpgradeSelected()
+    {
+        GameManager.instance.ResumeGame();
+        UIManager.Instance.ClosePopup(this);
     }
 }

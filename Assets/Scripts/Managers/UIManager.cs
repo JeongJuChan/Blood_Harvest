@@ -81,6 +81,8 @@ public class UIManager
 
         if (_currentPopups.Count == 0)
             _currentSortOrder = _defaultSortOrder;
+
+        UnityEngine.Object.Destroy(t.gameObject);
     }
 
     public void CloseLastPopup()
