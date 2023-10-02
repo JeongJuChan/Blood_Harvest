@@ -751,10 +751,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2536845972367467624, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      propertyPath: m_Mass
-      value: 99.99
-      objectReference: {fileID: 0}
     - target: {fileID: 6702284623740694786, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
       propertyPath: m_LayerOverridePriority
       value: 0
@@ -766,6 +762,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2287913525678140035, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1390982743}
+    - targetCorrespondingSourceObject: {fileID: 2287913525678140035, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1390982753}
   m_SourcePrefab: {fileID: 100100000, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
 --- !u!1 &388636962
 GameObject:
@@ -2723,54 +2722,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978508835}
   m_CullTransparentMesh: 1
---- !u!1 &1084614262
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1084614264}
-  - component: {fileID: 1084614263}
-  m_Layer: 0
-  m_Name: DamageManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1084614263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1084614262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1dcf903a4a064949afa6d212fd879f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerHealth: 0
-  maxplayerHealth: 100
-  zombieHealth: 0
-  enemy: {fileID: 0}
---- !u!4 &1084614264
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1084614262}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.641639, y: 0.0819158, z: -0.05253542}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1125753972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3270,7 +3221,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34690487b998a848b5752d420fc1e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainSprite: {fileID: 1543126938}
+--- !u!114 &1390982753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390982733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346c39171be87d24db98e716dfe0a65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1501140719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3349,11 +3311,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501140719}
   m_CullTransparentMesh: 1
---- !u!1 &1543126938 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5668963236657647414, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-  m_PrefabInstance: {fileID: 297678559}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1565205018
 GameObject:
   m_ObjectHideFlags: 0
