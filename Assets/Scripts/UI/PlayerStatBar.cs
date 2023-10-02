@@ -12,8 +12,8 @@ public class PlayerStatBar : MonoBehaviour
     CharacterStats player;
     private void Start()
     {
-        // player = GameManager.instance.player;
-        playerLevel.text = player.level.ToString();
+        player = GameManager.instance.player.GetComponent<CharacterStats>();
+        playerLevel.text = "Lv. " + player.level.ToString();
         playerExpBar.fillAmount = player.exp / 100f;
     }
     private void Update()
@@ -26,7 +26,7 @@ public class PlayerStatBar : MonoBehaviour
         {
             player.level++;
             player.exp -= 100f;
-            playerLevel.text = player.level.ToString();
+            playerLevel.text = "Lv. " + player.level.ToString();
         }
     }
 }
