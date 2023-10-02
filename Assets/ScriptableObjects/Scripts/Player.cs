@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // public RuntimeAnimatorController animController;
+    public GameObject MainSprite;
 
-    // Update is called once per frame
-    void Update()
+    Animator anim;
+    private void Awake()
     {
-        
+        anim = MainSprite.GetComponent<Animator>();
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        DamageManager.instance.playerHealth -= 10 * Time.deltaTime;
+        Debug.Log(DamageManager.instance.playerHealth);
+
+        if (DamageManager.instance.playerHealth < 0)
+        {
+            anim.SetTrigger("IsDead");
+        }
     }
 }
