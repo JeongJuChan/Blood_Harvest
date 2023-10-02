@@ -105,9 +105,9 @@ public class Enemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.name == "Player")
+        if (collision.collider.CompareTag("Player"))
         {
-            // 플레이어의 체력을 깎음
+            GetComponent<CharacterStatsHandler>().LoseHealth(10);
         }
     }
 }

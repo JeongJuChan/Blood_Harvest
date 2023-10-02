@@ -2695,7 +2695,7 @@ GameObject:
   - component: {fileID: 1095536337}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2847,13 +2847,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e5fc3f0569a7d42863028afa5eb0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statsChangeType: 0
-  maxHealth: 0
-  currentHealth: 0
+  statsChangeType: 2
+  maxHealth: 100
+  currentHealth: 100
   speed: 0
-  exp: 0
+  exp: 1
   level: 1
-  attackSO: {fileID: 0}
+  attackSO: {fileID: 11400000, guid: 28cb8f7c79b23814fbc7f99ebbda0349, type: 2}
 --- !u!70 &1095536338
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
