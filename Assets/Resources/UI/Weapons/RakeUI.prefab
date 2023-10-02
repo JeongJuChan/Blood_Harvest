@@ -469,10 +469,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7688809391324641282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 290c23c2d7db3294ba37a9d9ac52c8ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b414b711ab615445831512df8cc1aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: e224642bfc6078043a4f17bbeefbc2b4, type: 2}
+  data: {fileID: 11400000, guid: 2c84e48abdc73884aa5b5ae79075c6f2, type: 2}
   weaponImage: {fileID: 3784159720660527541}
   upgradeNameText: {fileID: 1587253484131476954}
   levelText: {fileID: 3211255716978639484}

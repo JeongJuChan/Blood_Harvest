@@ -56,9 +56,7 @@ public class PlayerWeaponHandler : MonoBehaviour
                 }
             }
 
-            Shooter shooter = AddShooter(weaponType);
-
-            shooter.SetData(data);
+            AddShooter(weaponType, weaponDataInstance);
         }
         else
         {
@@ -72,23 +70,38 @@ public class PlayerWeaponHandler : MonoBehaviour
         }
     }
 
-    private Shooter AddShooter(AdditionalWeaponType weaponType)
+    private Shooter AddShooter(AdditionalWeaponType weaponType, WeaponData data)
     {
         Shooter shooter = null;
         switch (weaponType)
         {
             case AdditionalWeaponType.Shovel:
-                shooter = gameObject.AddComponent<ShovelShooter>();
+                shooter = TryAddComponent<ShovelShooter>(data);
                 break;
             case AdditionalWeaponType.Rake:
-                shooter = gameObject.AddComponent<RakeShooter>();
+                shooter = TryAddComponent<RakeShooter>(data);
                 break;
             case AdditionalWeaponType.Sickle:
-                shooter = gameObject.AddComponent<SickleShooter>();
+                shooter = TryAddComponent<SickleShooter>(data);
                 break;
         }
 
         return shooter;
+    }
+
+    private T TryAddComponent<T>(WeaponData data) where T : Shooter
+    {
+        if (gameObject.TryGetComponent(out T t))
+        {
+            if (t.Data.level < t.Data.maxLevel)
+                t.Upgrade();
+
+            return t;
+        }
+
+        t = gameObject.AddComponent(typeof(T)) as T;
+        t.SetData(data);
+        return t;
     }
 
     private bool IsWeaponAlreadyExist(string weaponName, out WeaponData weaponData)

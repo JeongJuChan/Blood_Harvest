@@ -24,7 +24,7 @@ public class UpgradeItem : MonoBehaviour
 
     private void OnEnable()
     {
-        _selectButton.onClick.AddListener(OnUpgrade);
+        _selectButton.onClick.AddListener(OnClickUpgradeButton);
     }
 
     void Start()
@@ -34,10 +34,10 @@ public class UpgradeItem : MonoBehaviour
 
     private void OnDisable()
     {
-        _selectButton.onClick.RemoveListener(OnUpgrade);
+        _selectButton.onClick.RemoveListener(OnClickUpgradeButton);
     }
 
-    private void OnUpgrade()
+    private void OnClickUpgradeButton()
     {
         WeaponManager.Instance.UpgradeWeapon(data);
     }
