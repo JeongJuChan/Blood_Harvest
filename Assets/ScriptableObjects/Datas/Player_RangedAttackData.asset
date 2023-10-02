@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4edb909f0dd7e004f85846c282f66ed0, type: 3}
+  m_Script: {fileID: 11500000, guid: 12ca92a80cc37ab46a07df55f9f9e672, type: 3}
   m_Name: Player_RangedAttackData
   m_EditorClassIdentifier: 
-  size: 1
-  delay: 2
-  power: 2
-  speed: 10
+  size: 0
+  delay: 0
+  power: 0
+  speed: 0
   target:
     serializedVersion: 2
     m_Bits: 0
