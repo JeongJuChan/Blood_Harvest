@@ -9,8 +9,6 @@ public class DamageManager : MonoBehaviour
     public float playerHealth;
     public float maxplayerHealth = 100;
 
-    public Enemy enemy;
-
     private void Awake()
     {
         instance = this;
