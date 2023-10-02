@@ -6,15 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class GameOverSc : MonoBehaviour
 {
+    public static GameOverSc Instance;
     [SerializeField] GameObject SettingButton;
     [SerializeField] GameObject GameOverImage;
     [SerializeField] TextMeshProUGUI TimeText;
     float time;
+    private void Awake()
+    {
+        Instance = this;
+    }
     public void GameOver()
     {
         GameOverImage.SetActive(true);
         if (GameOverImage.activeSelf)
         {
+            PauseGame();
             SettingButton.SetActive(false);
         }
     }
@@ -29,8 +35,8 @@ public class GameOverSc : MonoBehaviour
     }
     public void ReStart()
     {
-        ResumeGame();
         SceneManager.LoadScene("GameScene");
+        ResumeGame();
     }
     private bool isPaused = false;
     public void PauseGame()

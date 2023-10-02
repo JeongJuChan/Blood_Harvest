@@ -274,7 +274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 463841046353095706, guid: 454deae59c0b6a74abe43f329ec942df, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 463841046353095706, guid: 454deae59c0b6a74abe43f329ec942df, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2955,7 +2955,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 474102365}
-        m_TargetAssemblyTypeName: GameManager_KMT, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameOverSc, Assembly-CSharp
         m_MethodName: ReStart
         m_Mode: 1
         m_Arguments:

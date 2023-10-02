@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        GameOverSc.Instance.ResumeGame();
     }
 
     private void Update()
@@ -24,6 +25,10 @@ public class GameManager : MonoBehaviour
         if (gameTime > maxGameTime)
         {
             FreezeGame();
+        }
+        if(player.GetComponent<CharacterStats>().currentHealth <= 0)
+        {
+            GameOverSc.Instance.GameOver();
         }
     }
 
