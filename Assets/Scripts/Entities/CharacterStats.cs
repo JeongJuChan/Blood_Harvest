@@ -22,12 +22,15 @@ public class CharacterStats : MonoBehaviour
 
     public AttackSO attackSO;
 
+    public event Action levelupEvent;
+
     private void Update()
     {
         if (exp >= 100)
         {
             level++;
             exp -= 100;
+            levelupEvent?.Invoke();
         }
     }
 }

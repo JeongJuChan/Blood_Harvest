@@ -14,6 +14,16 @@ public class CharacterStatsHandler : MonoBehaviour
         UpdateCharacterStats();
     }
 
+    private void OnEnable()
+    {
+        baseStats.levelupEvent += OnLevelUp;
+    }
+
+    private void OnDisable()
+    {
+        baseStats.levelupEvent -= OnLevelUp;
+    }
+
     private void UpdateCharacterStats()
     {
         AttackSO attackSO = null;
@@ -27,5 +37,10 @@ public class CharacterStatsHandler : MonoBehaviour
         CurrentStates.statsChangeType = baseStats.statsChangeType;
         CurrentStates.maxHealth = baseStats.maxHealth;
         CurrentStates.speed = baseStats.speed;
+    }
+
+    public void OnLevelUp()
+    {
+        UIManager.Instance.ShowPopup<UpgradeUI>();
     }
 }
