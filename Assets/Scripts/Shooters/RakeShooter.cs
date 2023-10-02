@@ -1,20 +1,47 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RakeShooter : Shooter
 {
-    private Rake _rake;
-    protected override IEnumerator Shoot()
+    [SerializeField] private float upgradeScale = 0.1f;
+
+    protected override void Shoot()
     {
-        if (_rake == null)
+        upgradeValue = upgradeScale;
+        StartCoroutine(CoShoot());
+    }
+
+    private IEnumerator CoShoot()
+    {
+        if (weapon == null)
         {
-            _rake = CreateNewWeapon() as Rake;
+            Rake rake = CreateNewWeapon() as Rake;
+            weapon = rake;
+            Init(rake);
         }
 
         yield return CoroutineRef.GetWaitForSeconds(timePerAttack);
-        _rake.SetOffsetTransform(transform);
 
-        StartCoroutine(Shoot());
+        StartCoroutine(CoShoot());
+    }
+
+    public override void Upgrade()
+    {
+        Data.scale += upgradeScale;
+        base.Upgrade();
+    }
+
+    private void Init(Rake rake)
+    {
+        rake.SetDamage(Data.attack);
+        rake.SetOffsetTransform(transform);
+    }
+
+    protected override void Apply()
+    {
+        Rake rake = weapon as Rake;
+        rake.ChangeScale(upgradeValue);
     }
 }

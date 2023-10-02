@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3163868165033831213}
-  - component: {fileID: 5170792170819068042}
+  - component: {fileID: 879186901492770717}
   m_Layer: 0
   m_Name: Rake
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5170792170819068042
+--- !u!114 &879186901492770717
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6601089875852679240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6239c529092051f4da83afaa0aec1d13, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ee1d23e454eaf0428f01b6d7a948982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1

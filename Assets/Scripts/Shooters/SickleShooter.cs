@@ -4,8 +4,30 @@ using UnityEngine;
 
 public class SickleShooter : Shooter
 {
-    protected override IEnumerator Shoot()
+    [SerializeField] private float upgradeSpeed = 1.3f;
+
+    protected override void Shoot()
     {
-        throw new System.NotImplementedException();
+        if (weapon == null)
+        {
+            upgradeValue = upgradeSpeed;
+            Sickle sickle = CreateNewWeapon() as Sickle;
+            weapon = sickle;
+            sickle.SetDamage(Data.attack);
+            sickle.SetOffsetTransform(transform);
+        }
+    }
+
+    public override void Upgrade()
+    {
+        base.Upgrade();
+        Sickle sickle = weapon as Sickle;
+        sickle.ChangeMoveSpeed(upgradeSpeed);
+    }
+
+    protected override void Apply()
+    {
+        Sickle sickle = weapon as Sickle;
+        sickle.ChangeMoveSpeed(upgradeValue);
     }
 }

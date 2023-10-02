@@ -7,8 +7,8 @@ public class WeaponManager
     private static WeaponManager _instance;
     public static WeaponManager Instance { get => GetInstance(); }
 
-    public HashSet<UpgradeItem> WeaponPrefabs { get; private set; }
-    public HashSet<WeaponData> WeaponDatas { get; private set; } = new HashSet<WeaponData>();
+    public List<UpgradeItem> WeaponPrefabs { get; private set; }
+    public List<WeaponData> WeaponDatas { get; private set; } = new List<WeaponData>();
 
     [Header("Resource Path")]
     private const string ITEM_UI_PATH = "UI/Weapons/";
@@ -25,7 +25,7 @@ public class WeaponManager
 
     public WeaponManager()
     {
-        WeaponPrefabs = new HashSet<UpgradeItem>(Resources.LoadAll<UpgradeItem>(ITEM_UI_PATH));
+        WeaponPrefabs = new List<UpgradeItem>(Resources.LoadAll<UpgradeItem>(ITEM_UI_PATH));
     }
 
     public bool IsLevelMax(UpgradeItem item)
@@ -35,8 +35,11 @@ public class WeaponManager
         {
             if (data.displayName.Equals(itemName))
             {
-                WeaponPrefabs.Remove(item);
-                return true;
+                if (data.level >= data.maxLevel)
+                {
+                    WeaponPrefabs.Remove(item);
+                    return true;
+                }
             }
         }
 
@@ -46,5 +49,19 @@ public class WeaponManager
     public void UpgradeWeapon(WeaponData data)
     {
         WeaponUpgradeEvent?.Invoke(data);
+    }
+
+    public void OnUpgraded(WeaponData data)
+    {
+        for (int i = 0; i < WeaponDatas.Count; i++)
+        {
+            if (WeaponDatas[i].displayName.Equals(data.displayName))
+            {
+                WeaponDatas[i] = data;
+                break;
+            }
+        }
+
+
     }
 }

@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fddfb8b5ec9be304a98ab364f59cdda1, type: 3}
+  m_Script: {fileID: 11500000, guid: d2a8e823c5b236f40b590f569717fb63, type: 3}
   m_Name: Sickle
   m_EditorClassIdentifier: 
   displayName: "\uB0AB"
-  description: "\uACE1\uBB3C\uC744 \uC218\uD655\uD560 \uB54C \uC4F0\uB294 \uB0AB\uC774\uB2E4."
+  description: "\uACE1\uBB3C\uC744 \uC218\uD655\uD560 \uB54C \uC4F0\uB294 \uB0AB\uC785\uB2C8\uB2E4."
   type: 1
+  maxLevel: 5
+  level: 1
   icon: {fileID: -344242777, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   attack: 8
   attackSpeed: 1
-  maxLevel: 5
-  level: 1
   count: 1
   scale: 1

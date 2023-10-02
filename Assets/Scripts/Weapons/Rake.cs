@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Rake : Weapon
 {
-    private Transform _offsetTransform;
     private Camera _mainCam;
+
+    [SerializeField] private float movingDuration = 1f;
 
     protected override void Awake()
     {
@@ -16,10 +17,12 @@ public class Rake : Weapon
     protected override IEnumerator Move()
     {
         Vector2 targetPos = _mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log(targetPos);
         float harfDuration = movingDuration * 0.5f;
         float elapsedTime = 0f;
         float normalizedRatio = 0f;
+        Vector2 targetRot = (targetPos - (Vector2)transform.position).normalized;
+
+        transform.up = targetRot;
 
         while (elapsedTime < harfDuration)
         {
@@ -35,7 +38,7 @@ public class Rake : Weapon
         {
             elapsedTime += Time.deltaTime;
             normalizedRatio = elapsedTime / harfDuration;
-            transform.position = Vector2.Lerp(transform.position, _offsetTransform.position, normalizedRatio);
+            transform.position = Vector2.Lerp(transform.position, offsetTransform.position, normalizedRatio);
             yield return null;
         }
 
@@ -47,8 +50,13 @@ public class Rake : Weapon
         base.OnCollide(collision);
     }
 
-    public void SetOffsetTransform(Transform shooterTrans)
+    public void ChangeScale(float value)
     {
-        _offsetTransform = shooterTrans;
+        Vector3 tempScale = transform.localScale;
+        tempScale += new Vector3(value, value, value);
+        transform.localScale = tempScale;
+
+        float increasingRate = (transform.localScale.x + value) / transform.localScale.x;
+        collider.size *= increasingRate;
     }
 }
