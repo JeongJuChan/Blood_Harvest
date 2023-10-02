@@ -23,7 +23,17 @@ public class GameManager : MonoBehaviour
 
         if (gameTime > maxGameTime)
         {
-            Time.timeScale = 0;
+            FreezeGame();
         }
+    }
+
+    public void FreezeGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
     }
 }

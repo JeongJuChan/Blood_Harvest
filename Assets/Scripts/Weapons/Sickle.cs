@@ -16,7 +16,7 @@ public class Sickle : Weapon
             float xPos = Mathf.Sin(currentAngle * Mathf.Deg2Rad);
             float yPos = Mathf.Cos(currentAngle * Mathf.Deg2Rad);
 
-            transform.position = new Vector2(xPos, yPos) * radius;
+            transform.position = (Vector2)offsetTransform.position + new Vector2(xPos, yPos) * radius;
             currentAngle += Time.deltaTime * moveSpeed;
 
             yield return null;
