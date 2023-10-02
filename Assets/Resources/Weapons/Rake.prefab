@@ -42,10 +42,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6601089875852679240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee1d23e454eaf0428f01b6d7a948982, type: 3}
+  m_Script: {fileID: 11500000, guid: 43924b8500c2a3643b694bdf61dc5d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  movingDuration: 1
 --- !u!1 &7133558559343283452
 GameObject:
   m_ObjectHideFlags: 0
