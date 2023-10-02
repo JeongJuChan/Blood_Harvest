@@ -420,11 +420,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8440604058589815685}
   - component: {fileID: 3519847760850919295}
-  - component: {fileID: 2993401087263166887}
+  - component: {fileID: 2252978200510517759}
   - component: {fileID: 5796571656572640988}
-  - component: {fileID: -7583660132451997388}
+  - component: {fileID: 9184043006567409188}
   m_Layer: 5
-  m_Name: RakeUI
+  m_Name: Shovel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -460,7 +460,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7688809391324641282}
   m_CullTransparentMesh: 1
---- !u!114 &2993401087263166887
+--- !u!114 &2252978200510517759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -469,10 +469,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7688809391324641282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b414b711ab615445831512df8cc1aa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 068f22bea0fde8d4986e3d67b7fb6be9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 2c84e48abdc73884aa5b5ae79075c6f2, type: 2}
+  data: {fileID: 11400000, guid: 482b1b7931bbc2445bfd000aa6dd6cdf, type: 2}
   weaponImage: {fileID: 3784159720660527541}
   upgradeNameText: {fileID: 1587253484131476954}
   levelText: {fileID: 3211255716978639484}
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-7583660132451997388
+--- !u!114 &9184043006567409188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
