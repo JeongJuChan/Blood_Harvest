@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8323978339133301574
 SpriteRenderer:
@@ -158,8 +158,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 481794085829688048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad799b3f9c487c943a67e979e099e644, type: 3}
+  m_Script: {fileID: 11500000, guid: 93b9188779d1fac428c36c8bac244134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieRb: {fileID: 5695536822122252864, guid: 6bd5c1abd84250040aefc9dd32eca5ce, type: 3}
   target: {fileID: 0}
