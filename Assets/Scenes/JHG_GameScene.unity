@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 997868775}
   - component: {fileID: 997868776}
   - component: {fileID: 997868779}
+  - component: {fileID: 997868780}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -539,6 +540,20 @@ MonoBehaviour:
   armRenderer: {fileID: 28210105}
   armPivot: {fileID: 1965241958}
   characterRenderer: {fileID: 189938907}
+--- !u!114 &997868780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997868772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f900f17c0fadc4d8f4a26051bf9a60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats: {fileID: 0}
+  statsModifiers: []
 --- !u!1 &1965241957
 GameObject:
   m_ObjectHideFlags: 0

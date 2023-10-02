@@ -20,6 +20,8 @@ public class CharacterStats : MonoBehaviour
     [Range(1f, 100f)] public float exp;
     public int level = 1;
 
+    public AttackSO attackSO;
+
     private void Update()
     {
         if (exp >= 100)
