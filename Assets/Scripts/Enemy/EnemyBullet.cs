@@ -15,13 +15,4 @@ public class EnemyBullet : MonoBehaviour
 
         Destroy(gameObject, 3f);
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.name == "Player")
-        {
-            // 플레이어의 체력을 깎고
-            Destroy(gameObject);
-        }
-    }
 }
