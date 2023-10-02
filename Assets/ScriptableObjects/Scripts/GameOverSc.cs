@@ -30,7 +30,7 @@ public class GameOverSc : MonoBehaviour
     public void ReStart()
     {
         ResumeGame();
-        SceneManager.LoadScene("KMT_GameScene");
+        SceneManager.LoadScene("GameScene");
     }
     private bool isPaused = false;
     public void PauseGame()
