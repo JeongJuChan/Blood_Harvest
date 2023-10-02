@@ -11,11 +11,14 @@ public class TopDownMovement : MonoBehaviour
     
     private Animator _animator;
 
+    private CharacterStatsHandler _stats;
+
     private void Awake()
     {
         _controller = GetComponent<TopDownCharacterController>();
         _stats = GetComponent<CharacterStats>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        _stats = GetComponent<CharacterStatsHandler>();
         _animator = transform.GetChild(0).GetComponent<Animator>();
     }
 
@@ -36,9 +39,9 @@ public class TopDownMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        direction = direction * _stats.speed;
+        direction = direction * _stats.CurrentStates.speed;
 
-        if(direction != Vector2.zero) 
+        if (direction != Vector2.zero) 
         {
             _animator.SetBool("IsRun", true);
         }
