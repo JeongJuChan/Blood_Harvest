@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddfb8b5ec9be304a98ab364f59cdda1, type: 3}
+  m_Name: Rake
+  m_EditorClassIdentifier: 
+  displayName: "\uC1E0\uC2A4\uB791"
+  description: "\uBC2D\uC744 \uAC08 \uB54C \uC4F0\uC774\uB294 \uC1E0\uC2A4\uB791\uC774\uB2E4."
+  type: 1
+  icon: {fileID: -1786786079, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  attack: 10
+  attackSpeed: 1
+  maxLevel: 5
+  level: 1
+  count: 1
+  scale: 1

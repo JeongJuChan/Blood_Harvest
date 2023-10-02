@@ -11,10 +11,21 @@ public enum StatsChangeType
 }
 
 [Serializable]
-public class CharacterStats
+public class CharacterStats : MonoBehaviour
 {
     public StatsChangeType statsChangeType;
     [Range(1, 100)] public int maxHealth;
+    [Range(1, 100)] public int currentHealth;
     [Range(1f, 20f)] public float speed;
-    public AttackSO attackSO;
+    [Range(1f, 100f)] public float exp;
+    public int level = 1;
+
+    private void Update()
+    {
+        if (exp >= 100)
+        {
+            level++;
+            exp -= 100;
+        }
+    }
 }

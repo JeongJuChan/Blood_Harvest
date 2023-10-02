@@ -17,6 +17,8 @@ public class UIManager
 
     private Dictionary<string, UIBase> _popupDict = new Dictionary<string, UIBase>();
 
+    private const string POPUP_PATH = "UI/Popup/";
+
     private UIManager()
     {
         _defaultSortOrder = _currentSortOrder;
@@ -48,7 +50,7 @@ public class UIManager
 
         if (!_popupDict.ContainsKey(popupName))
         {
-            _popupDict.Add(popupName, ResourceManager.Instance.Load<UIBase>($"UI/{popupName}"));
+            _popupDict.Add(popupName, Resources.Load<UIBase>($"{POPUP_PATH}{popupName}"));
         }
 
         UIBase uiPopup = UnityEngine.Object.Instantiate(_popupDict[popupName]);
