@@ -16,13 +16,4 @@ public class BossBullet : MonoBehaviour
 
         Destroy(gameObject, 4.0f);
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.name == "Player")
-        {
-            // 플레이어의 체력을 더 많이 깎고
-            Destroy(gameObject);
-        }
-    }
 }
