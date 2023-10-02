@@ -34,7 +34,7 @@ public class CharacterStatsHandler : MonoBehaviour
         switch (x)
         {
             case 10:
-                CurrentStates.currentHealth -= 10;
+                // CurrentStates.currentHealth -= 10;
                 Debug.Log("-10");
                 break;
             case 7:

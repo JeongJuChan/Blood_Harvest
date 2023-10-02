@@ -12,7 +12,7 @@ public class PlayerStatBar : MonoBehaviour
     CharacterStats player;
     private void Start()
     {
-        player = GameManager.instance.player;
+        // player = GameManager.instance.player;
         playerLevel.text = player.level.ToString();
         playerExpBar.fillAmount = player.exp / 100f;
     }
