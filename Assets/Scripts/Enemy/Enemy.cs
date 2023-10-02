@@ -103,11 +103,4 @@ public class Enemy : MonoBehaviour
         _maxHealth = data.zombieHealth;
         _health = data.zombieHealth;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            GetComponent<CharacterStatsHandler>().LoseHealth(10);
-        }
-    }
 }
