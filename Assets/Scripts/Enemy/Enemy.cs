@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 break;
             case "AcEnemy 3":
-                if (distance < 8.0f) rb.MovePosition(rb.position + (nextdir * 2.5f));
+                if (distance < 8.0f) rb.MovePosition(rb.position + (nextdir * 2.0f));
                 else rb.MovePosition(rb.position + nextdir);
                 rb.velocity = Vector2.zero;
                 break;
