@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public RuntimeAnimatorController[] animController;
     public GameObject bulletPrefab;
     public GameObject bossBulletPrefab;
+    public ItemDropTable itemDropTable;
 
     Rigidbody2D rb;
     SpriteRenderer spr;

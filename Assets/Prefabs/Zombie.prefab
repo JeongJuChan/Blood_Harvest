@@ -278,3 +278,4 @@ MonoBehaviour:
   - {fileID: 22100000, guid: 25f7a818644b68042bb0c0c2a28d1550, type: 2}
   bulletPrefab: {fileID: 481794085829688048, guid: a37600fae8de2324c961e025fc20412f, type: 3}
   bossBulletPrefab: {fileID: 481794085829688048, guid: a140fc952439c11488b9a18055082b5f, type: 3}
+  itemDropTable: {fileID: 11400000, guid: 6eca43b263d7f0248ade1a174801655b, type: 2}

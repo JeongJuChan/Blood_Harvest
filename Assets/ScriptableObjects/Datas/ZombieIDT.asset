@@ -19,12 +19,3 @@ MonoBehaviour:
   - dropRate: 50
     itemName: Heal
     itemPrefab: {fileID: 8279107844028001492, guid: 4b11ae2e0aa3daf40b24b88a7d15c23a, type: 3}
-  - dropRate: 30
-    itemName: Haste
-    itemPrefab: {fileID: 8279107844028001492, guid: 82430f60121206146becbae6e58e1869, type: 3}
-  - dropRate: 10
-    itemName: Magnet
-    itemPrefab: {fileID: 8279107844028001492, guid: 0532296a697979c43990c809ea2e571c, type: 3}
-  - dropRate: 10
-    itemName: TimePause
-    itemPrefab: {fileID: 8279107844028001492, guid: b338bcecd7dc19447be790770cfb966f, type: 3}
