@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterStatsHandler : MonoBehaviour
 {
     [SerializeField] private CharacterStats baseStats;
-    public CharacterStats CurrentStates { get; private set; }
+    public CharacterStats CurrentStats { get; private set; }
     public List<CharacterStats> statsModifiers = new List<CharacterStats>();
 
     private void Awake()
@@ -17,6 +17,11 @@ public class CharacterStatsHandler : MonoBehaviour
     private void OnEnable()
     {
         baseStats.levelupEvent += OnLevelUp;
+    }
+
+    private void Update()
+    {
+        CurrentStats.CheckLevelUp();
     }
 
     private void OnDisable()
@@ -32,11 +37,13 @@ public class CharacterStatsHandler : MonoBehaviour
             attackSO = Instantiate(baseStats.attackSO);
         }
 
-        CurrentStates = new CharacterStats { attackSO = attackSO };
+        CurrentStats = new CharacterStats { attackSO = attackSO };
         // TODO
-        CurrentStates.statsChangeType = baseStats.statsChangeType;
-        CurrentStates.maxHealth = baseStats.maxHealth;
-        CurrentStates.speed = baseStats.speed;
+        CurrentStats.statsChangeType = baseStats.statsChangeType;
+        CurrentStats.maxHealth = baseStats.maxHealth;
+        CurrentStats.currentHealth = baseStats.currentHealth;
+        CurrentStats.level = baseStats.level;
+        CurrentStats.speed = baseStats.speed;
     }
 
     public void OnLevelUp()

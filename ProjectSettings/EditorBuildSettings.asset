@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KMT_StartScene.unity
     guid: b16f706defa118042b7eaa3282b0fd7e
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: dc5b527c6ab30654f86ea5df584f661b
   m_configObjects: {}

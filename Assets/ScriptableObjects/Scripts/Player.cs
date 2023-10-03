@@ -9,31 +9,31 @@ public class Player : MonoBehaviour
 
     Animator anim;
 
-    CharacterStats player;
+    CharacterStatsHandler player;
     private void Awake()
     {
         anim = MainSprite.GetComponent<Animator>();
     }
     private void Start()
     {
-        player = GameManager.instance.player.GetComponent<CharacterStats>();
+        player = GetComponent<CharacterStatsHandler>();
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        player.currentHealth -= 10 * Time.deltaTime;
-        Debug.Log(player.currentHealth);
+        player.CurrentStats.currentHealth -= 10 * Time.deltaTime;
+        Debug.Log(player.CurrentStats.currentHealth);
 
-        if (player.currentHealth < 0)
+        if (player.CurrentStats.currentHealth < 0)
         {
             anim.SetTrigger("IsDead");
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        player.currentHealth -= 20 * Time.deltaTime;
-        Debug.Log(player.currentHealth);
+        player.CurrentStats.currentHealth -= 20 * Time.deltaTime;
+        Debug.Log(player.CurrentStats.currentHealth);
 
-        if (player.currentHealth < 0)
+        if (player.CurrentStats.currentHealth < 0)
         {
             anim.SetTrigger("IsDead");
         }

@@ -48,7 +48,6 @@ GameObject:
   - component: {fileID: 5092515994841074259}
   - component: {fileID: 2552588662780332150}
   - component: {fileID: 721917017042295913}
-  - component: {fileID: 5404407031945611402}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -70,7 +69,7 @@ Transform:
   m_Children:
   - {fileID: 788402537956114075}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2536845972367467624
 Rigidbody2D:
@@ -225,27 +224,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aabd21c7742a31498c15ba94f67a5c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStats: {fileID: 5404407031945611402}
+  baseStats:
+    statsChangeType: 0
+    maxHealth: 0
+    currentHealth: 0
+    speed: 0
+    exp: 0
+    level: 1
+    attackSO: {fileID: 0}
   statsModifiers: []
---- !u!114 &5404407031945611402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2287913525678140035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23e5fc3f0569a7d42863028afa5eb0f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statsChangeType: 2
-  maxHealth: 24
-  currentHealth: 31
-  speed: 9.52
-  exp: 19.8
-  level: 1
-  attackSO: {fileID: 11400000, guid: 28cb8f7c79b23814fbc7f99ebbda0349, type: 2}
 --- !u!1 &3009455712427913864
 GameObject:
   m_ObjectHideFlags: 0

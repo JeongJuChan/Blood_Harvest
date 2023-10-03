@@ -11,7 +11,7 @@ public enum StatsChangeType
 }
 
 [Serializable]
-public class CharacterStats : MonoBehaviour
+public class CharacterStats
 {
     public StatsChangeType statsChangeType;
     [Range(1, 100)] public float maxHealth;
@@ -24,7 +24,7 @@ public class CharacterStats : MonoBehaviour
 
     public event Action levelupEvent;
 
-    private void Update()
+    public void CheckLevelUp()
     {
         if (exp >= 100)
         {
@@ -33,4 +33,5 @@ public class CharacterStats : MonoBehaviour
             levelupEvent?.Invoke();
         }
     }
+
 }

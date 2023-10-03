@@ -12,10 +12,13 @@ public class GameManager : MonoBehaviour
     public float gameTime;
     public float maxGameTime = 3 * 10f;
 
+    private CharacterStatsHandler _statsHandler;
+
     private void Awake()
     {
         instance = this;
         GameOverSc.Instance.ResumeGame();
+        _statsHandler = player.GetComponent<CharacterStatsHandler>();
     }
 
     private void Update()
@@ -26,7 +29,7 @@ public class GameManager : MonoBehaviour
         {
             FreezeGame();
         }
-        if(player.GetComponent<CharacterStats>().currentHealth <= 0)
+        if(_statsHandler.CurrentStats.currentHealth <= 0)
         {
             GameOverSc.Instance.GameOver();
         }
