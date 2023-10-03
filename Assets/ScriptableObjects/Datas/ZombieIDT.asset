@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf583218872986f41a5ff3a39b69068d, type: 3}
+  m_Name: ZombieIDT
+  m_EditorClassIdentifier: 
+  items:
+  - dropRate: 100
+    itemName: EXP
+    itemPrefab: {fileID: 8279107844028001492, guid: f62bdadfd641ecc4baa919c41e7a0edb, type: 3}
+  - dropRate: 50
+    itemName: Heal
+    itemPrefab: {fileID: 8279107844028001492, guid: 4b11ae2e0aa3daf40b24b88a7d15c23a, type: 3}
+  - dropRate: 30
+    itemName: Haste
+    itemPrefab: {fileID: 8279107844028001492, guid: 82430f60121206146becbae6e58e1869, type: 3}
+  - dropRate: 10
+    itemName: Magnet
+    itemPrefab: {fileID: 8279107844028001492, guid: 0532296a697979c43990c809ea2e571c, type: 3}
+  - dropRate: 10
+    itemName: TimePause
+    itemPrefab: {fileID: 8279107844028001492, guid: b338bcecd7dc19447be790770cfb966f, type: 3}
