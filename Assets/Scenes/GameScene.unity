@@ -813,26 +813,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 721917017042295913, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      propertyPath: baseStats.exp
-      value: 19.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 721917017042295913, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      propertyPath: baseStats.speed
-      value: 6.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 721917017042295913, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      propertyPath: baseStats.attackSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 28cb8f7c79b23814fbc7f99ebbda0349, type: 2}
-    - target: {fileID: 721917017042295913, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      propertyPath: baseStats.maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 721917017042295913, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      propertyPath: baseStats.currentHealth
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 1209126354190960188, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -877,49 +857,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1377917240925590852, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2287913525678140035, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2287913525678140035, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2536845972367467624, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      propertyPath: m_Mass
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404407031945611402, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      propertyPath: speed
-      value: 6.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404407031945611402, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404407031945611402, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      propertyPath: currentHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6702284623740694786, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      propertyPath: m_LayerOverridePriority
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5404407031945611402, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2287913525678140035, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1390982743}
-    - targetCorrespondingSourceObject: {fileID: 2287913525678140035, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1390982753}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
 --- !u!1 &388636962
 GameObject:
@@ -2262,34 +2207,42 @@ MonoBehaviour:
     zombieType: 0
     zombieHealth: 6
     zombieSpeed: 2
+    zombieExp: 20
   - spawnTime: 0.5
     zombieType: 1
     zombieHealth: 10
     zombieSpeed: 1.5
+    zombieExp: 30
   - spawnTime: 0.5
     zombieType: 2
     zombieHealth: 4
     zombieSpeed: 1.5
+    zombieExp: 10
   - spawnTime: 1
     zombieType: 3
     zombieHealth: 100
     zombieSpeed: 3
+    zombieExp: 50
   - spawnTime: 1
     zombieType: 4
     zombieHealth: 1000
     zombieSpeed: 2
+    zombieExp: 100
   - spawnTime: 1
     zombieType: 5
     zombieHealth: 100
     zombieSpeed: 2.3
+    zombieExp: 40
   - spawnTime: 1
     zombieType: 6
     zombieHealth: 150
     zombieSpeed: 1.8
+    zombieExp: 60
   - spawnTime: 1
     zombieType: 7
     zombieHealth: 70
     zombieSpeed: 1.8
+    zombieExp: 60
 --- !u!4 &784673002
 Transform:
   m_ObjectHideFlags: 0
@@ -3236,11 +3189,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164217303}
   m_CullTransparentMesh: 1
---- !u!1 &1164226116 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5668963236657647414, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
-  m_PrefabInstance: {fileID: 297678559}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1173726713
 GameObject:
   m_ObjectHideFlags: 0
@@ -3379,34 +3327,15 @@ Transform:
   m_Father: {fileID: 784673002}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1390982733 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2287913525678140035, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
+--- !u!114 &1390982743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3803409722131676496, guid: acd2358aa02b5ce4089de60d9cc5853b, type: 3}
   m_PrefabInstance: {fileID: 297678559}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1390982743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390982733}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e34690487b998a848b5752d420fc1e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainSprite: {fileID: 1164226116}
---- !u!114 &1390982753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390982733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 346c39171be87d24db98e716dfe0a65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1501140719

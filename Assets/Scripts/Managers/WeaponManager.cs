@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class WeaponManager
 {
-    private static WeaponManager _instance;
-    public static WeaponManager Instance { get => GetInstance(); }
-
     public List<UpgradeItem> WeaponPrefabs { get; private set; }
     public List<WeaponData> WeaponDatas { get; private set; } = new List<WeaponData>();
 
@@ -14,14 +11,6 @@ public class WeaponManager
     private const string ITEM_UI_PATH = "UI/Weapons/";
 
     public event Action<WeaponData> WeaponUpgradeEvent;
-
-    private static WeaponManager GetInstance()
-    {
-        if (_instance == null)
-            _instance = new WeaponManager();
-
-        return _instance;
-    }
 
     public WeaponManager()
     {

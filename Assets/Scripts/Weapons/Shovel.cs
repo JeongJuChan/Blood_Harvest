@@ -28,6 +28,5 @@ public class Shovel : Weapon
     protected override void OnCollide(Collider2D collision)
     {
         base.OnCollide(collision);
-        gameObject.SetActive(false);
     }
 }

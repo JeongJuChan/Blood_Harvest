@@ -6,6 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    private WeaponManager _weapon;
+    public WeaponManager Weapon { get => GetInstance(ref _weapon); }
+
+
     public MobManager mob;
     public Player player;
 
@@ -33,6 +37,14 @@ public class GameManager : MonoBehaviour
         {
             GameOverSc.Instance.GameOver();
         }
+    }
+
+    public T GetInstance<T>(ref T t) where T : new()
+    {
+        if (t == null)
+            t = new T();
+
+        return t;
     }
 
     public void FreezeGame()
