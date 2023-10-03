@@ -29,13 +29,14 @@ public class UpgradeUI : UIBase
 
     private void InstantiateRandomItems()
     {
-        List<UpgradeItem> upgradeItems = new List<UpgradeItem>(WeaponManager.Instance.WeaponPrefabs);
+        List<UpgradeItem> upgradeItems = new List<UpgradeItem>(GameManager.instance.Weapon.WeaponPrefabs);
+
         int count = _itemCount;
 
         while (count > 0)
         {
             int index = UnityEngine.Random.Range(0, upgradeItems.Count);
-            bool isMax = WeaponManager.Instance.IsLevelMax(upgradeItems[index]);
+            bool isMax = GameManager.instance.Weapon.IsLevelMax(upgradeItems[index]);
 
             if (isMax)
             {

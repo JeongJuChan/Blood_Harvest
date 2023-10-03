@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Exp : MonoBehaviour
 {
-    [SerializeField] private float expAmount;
+    [SerializeField] private int expAmount;
     private CharacterStats stats;
     private GameObject player;
     public bool magnetTime = false;

@@ -22,10 +22,10 @@ public class PlayerStatBar : MonoBehaviour
     }
     public void LevelUp()
     {
-        if(player.exp >= 100f)
+        if(player.exp >= 100)
         {
             player.level++;
-            player.exp -= 100f;
+            player.exp -= 100;
             playerLevel.text = "Lv. " + player.level.ToString();
         }
     }

@@ -1,14 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamagable
 {
     private float _speed;
     private float _health;
     private float _maxHealth;
+    private int _exp;
     private float _attackTimer = 0;
     private float _attackRate = 2.0f;
     private float _bossattackTimer = 0;
@@ -25,6 +27,9 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer spr;
     Animator anim;
+
+    public event Action<GameObject> returnToPoolEvent;
+    public event Action<int> expEvent;
 
     private void Awake()
     {
@@ -97,11 +102,30 @@ public class Enemy : MonoBehaviour
         _health = _maxHealth;
     }
 
+    private void OnDestroy()
+    {
+        returnToPoolEvent = null;
+        expEvent = null;
+    }
+
     public void Init(SpawnData data)
     {
         anim.runtimeAnimatorController = animController[data.zombieType % 5];
+
         _speed = data.zombieSpeed;
         _maxHealth = data.zombieHealth;
         _health = data.zombieHealth;
+        _exp = data.zombieExp;
+    }
+
+    public void Damaged(float damage)
+    {
+        _health = Mathf.Clamp(_health - damage, 0, _maxHealth);
+
+        if (_health <= 0f)
+        {
+            expEvent?.Invoke(_exp);
+            returnToPoolEvent?.Invoke(gameObject);
+        }
     }
 }

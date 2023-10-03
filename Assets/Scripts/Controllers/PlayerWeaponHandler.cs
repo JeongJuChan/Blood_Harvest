@@ -7,19 +7,16 @@ public class PlayerWeaponHandler : MonoBehaviour
 {
     private WeaponManager _weaponManager;
 
-    private void OnEnable()
-    {
-        WeaponManager.Instance.WeaponUpgradeEvent += OnWeaponUpgraded;
-    }
-
     private void Start()
     {
-        _weaponManager = WeaponManager.Instance;
+        _weaponManager = GameManager.instance.Weapon;
+        GameManager.instance.Weapon.WeaponUpgradeEvent += OnWeaponUpgraded;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        WeaponManager.Instance.WeaponUpgradeEvent -= OnWeaponUpgraded;
+        GameManager.instance.Weapon.WeaponUpgradeEvent -= OnWeaponUpgraded;
+
     }
 
     private void OnWeaponUpgraded(WeaponData data)

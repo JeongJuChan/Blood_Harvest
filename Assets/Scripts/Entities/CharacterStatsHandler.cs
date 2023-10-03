@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterStatsHandler : MonoBehaviour
 {
     [SerializeField] private CharacterStats baseStats;
-    public CharacterStats CurrentStates { get; private set; }
+    public CharacterStats CurrentStats { get; private set; }
     public List<CharacterStats> statsModifiers = new List<CharacterStats>();
 
     private void Awake()
@@ -14,14 +14,21 @@ public class CharacterStatsHandler : MonoBehaviour
         UpdateCharacterStats();
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        baseStats.levelupEvent += OnLevelUp;
+        CurrentStats.levelupEvent += OnLevelUp;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        baseStats.levelupEvent -= OnLevelUp;
+        CurrentStats.levelupEvent -= OnLevelUp;
+    }
+
+    public void ExpUp(int amount)
+    {
+        CurrentStats.exp += amount;
+        Debug.Log(CurrentStats.exp);
+        CurrentStats.CheckLevelUp();
     }
 
     private void UpdateCharacterStats()
@@ -32,15 +39,22 @@ public class CharacterStatsHandler : MonoBehaviour
             attackSO = Instantiate(baseStats.attackSO);
         }
 
-        CurrentStates = new CharacterStats { attackSO = attackSO };
+        CurrentStats = new CharacterStats { attackSO = attackSO };
         // TODO
-        CurrentStates.statsChangeType = baseStats.statsChangeType;
-        CurrentStates.maxHealth = baseStats.maxHealth;
-        CurrentStates.speed = baseStats.speed;
+        CurrentStats.statsChangeType = baseStats.statsChangeType;
+        CurrentStats.maxHealth = baseStats.maxHealth;
+        CurrentStats.currentHealth = baseStats.currentHealth;
+        CurrentStats.level = baseStats.level;
+        CurrentStats.exp = baseStats.exp;
+        CurrentStats.speed = baseStats.speed;
     }
 
-    public void OnLevelUp()
+
+
+    private void OnLevelUp()
     {
         UIManager.Instance.ShowPopup<UpgradeUI>();
     }
+
+    
 }

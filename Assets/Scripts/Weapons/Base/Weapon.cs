@@ -40,8 +40,10 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void OnCollide(Collider2D collision)
     {
-        // 충돌 시 데미지 주기
-        //collision.GetComponent<Enemy>().OnDamaged(damage);
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<IDamagable>().Damaged(damage);
+        }
     }
 
     protected abstract IEnumerator Move();
