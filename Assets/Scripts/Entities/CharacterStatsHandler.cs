@@ -27,7 +27,6 @@ public class CharacterStatsHandler : MonoBehaviour
     public void ExpUp(int amount)
     {
         CurrentStats.exp += amount;
-        Debug.Log(CurrentStats.exp);
         CurrentStats.CheckLevelUp();
     }
 

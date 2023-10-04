@@ -37,6 +37,8 @@ public class CharacterStats
             exp -= 100;
             levelupEvent?.Invoke();
         }
+
+        GameManager.instance.ShowLevelState(exp, level);
     }
 
 }

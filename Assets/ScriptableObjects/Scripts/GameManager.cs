@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,11 +13,13 @@ public class GameManager : MonoBehaviour
 
     public MobManager mob;
     public Player player;
-
+    
     public float gameTime;
     public float maxGameTime = 10 * 60.0f;
 
     private CharacterStatsHandler _statsHandler;
+
+    public event Action<int, int> expChangedEvent;
 
     private void Awake()
     {
@@ -37,6 +40,11 @@ public class GameManager : MonoBehaviour
         {
             GameOverSc.Instance.GameOver();
         }
+    }
+
+    public void ShowLevelState(int exp, int level)
+    {
+        expChangedEvent?.Invoke(exp, level);
     }
 
     public T GetInstance<T>(ref T t) where T : new()

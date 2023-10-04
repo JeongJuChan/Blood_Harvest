@@ -60,7 +60,6 @@ public class TopDownShooting : MonoBehaviour
         {
             Bullet bullet = _bullets.Dequeue();
             _aimDirection = projectileSpownPosition.right;
-            Debug.Log(_aimDirection);
             bullet.SetPosition(projectileSpownPosition.position);
             bullet.SetDirection(_aimDirection);
             bullet.SetDamage(_statHandler.CurrentStats.damage);
