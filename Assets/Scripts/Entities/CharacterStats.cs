@@ -11,20 +11,25 @@ public enum StatsChangeType
 }
 
 [Serializable]
-public class CharacterStats : MonoBehaviour
+public class CharacterStats
 {
     public StatsChangeType statsChangeType;
     [Range(1, 100)] public float maxHealth;
     [Range(1, 100)] public float currentHealth;
     [Range(1f, 20f)] public float speed;
-    [Range(1f, 100f)] public float exp;
+    public int exp;
     public int level = 1;
+
+    [Header("Default Weapon Stats")]
+    [Range(1f, 20f)] public float damage = 3;
+    [Range(1f, 20f)] public float attackSpeed = 1;
+    [Range(1f, 20f)] public float count = 1;
 
     public AttackSO attackSO;
 
     public event Action levelupEvent;
 
-    private void Update()
+    public void CheckLevelUp()
     {
         if (exp >= 100)
         {
@@ -33,4 +38,5 @@ public class CharacterStats : MonoBehaviour
             levelupEvent?.Invoke();
         }
     }
+
 }

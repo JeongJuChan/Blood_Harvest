@@ -97,4 +97,5 @@ public class SpawnData
     public int zombieType;
     public int zombieHealth;
     public float zombieSpeed;
+    public int zombieExp;
 }

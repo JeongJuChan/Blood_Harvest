@@ -10,7 +10,6 @@ public class MagnetField : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Exp exp) && magnetTime)
         {
-            Debug.Log("영역전개");
             StartCoroutine(MagnetLimit(exp));
         }
     }
@@ -18,8 +17,6 @@ public class MagnetField : MonoBehaviour
 
     IEnumerator MagnetLimit(Exp exp)
     {
-        int callCoroutain = 0;
-        Debug.Log("코루틴 호출 : " + ++callCoroutain);
         exp.magnetTime = true;
         yield return new WaitForSecondsRealtime(1.5f);
         exp.magnetTime = false;

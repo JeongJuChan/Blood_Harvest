@@ -6,16 +6,23 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    private WeaponManager _weapon;
+    public WeaponManager Weapon { get => GetInstance(ref _weapon); }
+
+
     public MobManager mob;
     public Player player;
 
     public float gameTime;
     public float maxGameTime = 10 * 60.0f;
 
+    private CharacterStatsHandler _statsHandler;
+
     private void Awake()
     {
         instance = this;
         GameOverSc.Instance.ResumeGame();
+        _statsHandler = player.GetComponent<CharacterStatsHandler>();
     }
 
     private void Update()
@@ -26,10 +33,18 @@ public class GameManager : MonoBehaviour
         {
             FreezeGame();
         }
-        if(player.GetComponent<CharacterStats>().currentHealth <= 0)
+        if(_statsHandler.CurrentStats.currentHealth <= 0)
         {
             GameOverSc.Instance.GameOver();
         }
+    }
+
+    public T GetInstance<T>(ref T t) where T : new()
+    {
+        if (t == null)
+            t = new T();
+
+        return t;
     }
 
     public void FreezeGame()

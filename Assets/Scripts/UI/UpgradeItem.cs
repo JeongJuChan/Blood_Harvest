@@ -41,7 +41,7 @@ public class UpgradeItem : MonoBehaviour
 
     private void OnClickUpgradeButton()
     {
-        WeaponManager.Instance.UpgradeWeapon(data);
+        GameManager.instance.Weapon.UpgradeWeapon(data);
         closeEvent?.Invoke();
 
 
@@ -54,7 +54,7 @@ public class UpgradeItem : MonoBehaviour
         descriptionText.text = data.description;
 
         WeaponData tempData = null;
-        foreach (WeaponData weaponData in WeaponManager.Instance.WeaponDatas)
+        foreach (WeaponData weaponData in GameManager.instance.Weapon.WeaponDatas)
         {
             if (data.displayName.Equals(weaponData.displayName))
             {

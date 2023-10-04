@@ -52,7 +52,7 @@ public abstract class Shooter : MonoBehaviour
     {
         Data.level++;
         Apply();
-        WeaponManager.Instance.OnUpgraded(Data);
+        GameManager.instance.Weapon.OnUpgraded(Data);
     }
 
     protected abstract void Apply();

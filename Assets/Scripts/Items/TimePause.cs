@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class TimePause : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float duration;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(Pause());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Pause()
     {
-        
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(duration);
+        Time.timeScale = 1f;
     }
 }
