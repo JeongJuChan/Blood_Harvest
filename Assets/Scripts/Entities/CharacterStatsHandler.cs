@@ -11,6 +11,8 @@ public class CharacterStatsHandler : MonoBehaviour
 
     private TopDownShooting _shooter;
 
+    public int LevelUpRemain { get; private set; }
+
     private void Awake()
     {
         UpdateCharacterStats();
@@ -94,7 +96,23 @@ public class CharacterStatsHandler : MonoBehaviour
 
     private void OnLevelUp()
     {
-        UIManager.Instance.ShowPopup<UpgradeUI>();
+        if (!UIManager.Instance.IsPopupExist(typeof(UpgradeUI).Name, out UIBase popup))
+        {
+            UIManager.Instance.ShowPopup<UpgradeUI>();
+        }
+        else
+        {
+            LevelUpRemain++;
+        }
+    }
+
+    public void CheckLevelupRemained()
+    {
+        if (LevelUpRemain > 0)
+        {
+            LevelUpRemain--;
+            OnLevelUp();
+        }
     }
 
     

@@ -59,7 +59,8 @@ public class UpgradeUI : UIBase
 
     private void OnUpgradeSelected()
     {
-        GameManager.instance.ResumeGame();
         UIManager.Instance.ClosePopup(this);
+        GameManager.instance.CheckRemainLevelup();
+        GameManager.instance.ResumeGame();
     }
 }

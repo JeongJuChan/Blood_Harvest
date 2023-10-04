@@ -12,6 +12,7 @@ public class LevelUI : MonoBehaviour
 
     private void Start()
     {
+        UpdateLevelState(1, 0);
         GameManager.instance.expChangedEvent += UpdateLevelState;
     }
 
@@ -23,6 +24,6 @@ public class LevelUI : MonoBehaviour
     public void UpdateLevelState(int level, int exp)
     {
         expSlider.fillAmount = exp * LEVEL_DIV;
-        levelText.text = level.ToString();
+        levelText.text = $"Level : {level}";
     }
 }

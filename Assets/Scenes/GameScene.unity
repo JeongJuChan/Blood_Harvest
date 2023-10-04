@@ -1162,6 +1162,7 @@ MonoBehaviour:
   player: {fileID: 1390982743}
   gameTime: 0
   maxGameTime: 600
+  waitLevelUpClosedTime: 1
 --- !u!114 &474102367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1495,10 +1496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641766edb78d08448b1a4e589daba446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSources:
-  - {fileID: 219042641}
-  - {fileID: 983144572}
-  - {fileID: 970723191}
+  audioSources: []
   masterMixer: {fileID: 24100000, guid: 32eb8d75689707f419fdca0dc50e0bac, type: 2}
   bgmSlider: {fileID: 686694815}
   sfxSlider: {fileID: 90973328}

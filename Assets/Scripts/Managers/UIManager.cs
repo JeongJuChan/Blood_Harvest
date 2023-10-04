@@ -113,7 +113,7 @@ public class UIManager
         _currentSortOrder++;
     }
 
-    private bool IsPopupExist(string popupName, out UIBase uiPopup)
+    public bool IsPopupExist(string popupName, out UIBase uiPopup)
     {
         foreach (var popup in _currentPopups)
         {
