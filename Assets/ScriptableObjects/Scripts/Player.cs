@@ -19,8 +19,11 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        player.currentHealth -= 10 * Time.deltaTime;
-        Debug.Log(player.currentHealth);
+        if (collision.collider.CompareTag("Zombie"))
+        {
+            player.currentHealth -= 10 * Time.deltaTime;
+            Debug.Log(player.currentHealth);
+        }
 
         if (player.currentHealth < 0)
         {

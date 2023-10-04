@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public Transform[] spawnPoint;
+    // public Transform[] spawnPoint;
     public SpawnData[] spawnData;
 
+    float range_X;
+    float range_Y;
     float timer;
     int level;
     private bool _isBoss1;
@@ -14,7 +16,7 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-        spawnPoint = GetComponentsInChildren<Transform>();
+        // spawnPoint = GetComponentsInChildren<Transform>();
         _isBoss1 = false;
         _isBoss2 = false;
     }
@@ -22,7 +24,7 @@ public class Spawner : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        level = Mathf.FloorToInt(GameManager.instance.gameTime / 2f);
+        level = Mathf.FloorToInt(GameManager.instance.gameTime / 60.0f);
 
         if (timer > 0.5f)
         {
@@ -34,8 +36,12 @@ public class Spawner : MonoBehaviour
     public void Spawn()
     {
         GameObject enemy = GameManager.instance.mob.GetEnemy(0);
-        enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
-        
+        // enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
+        range_X = Random.Range(-16, 17);
+        range_Y = Random.Range(-13, 14);
+        Vector2 RandomPostion = new Vector2(range_X, range_Y);
+        enemy.transform.position = RandomPostion;
+
         switch (level)
         {
             case 0:     // 1¹ø ±ÙÁ¢¸÷
