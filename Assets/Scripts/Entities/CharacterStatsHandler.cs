@@ -41,7 +41,7 @@ public class CharacterStatsHandler : MonoBehaviour
     public IEnumerator SpdBuff(float value, float duration)
     {
         CurrentStats.speed += value;
-        yield return new WaitForSecondsRealtime(duration);
+        yield return new WaitForSeconds(duration);
         CurrentStats.speed -= value;
     }
 
