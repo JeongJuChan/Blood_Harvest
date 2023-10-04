@@ -6,9 +6,15 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager instance;
+    public AudioSource[] audioSources;
     [SerializeField] AudioMixer masterMixer;
     [SerializeField] Slider bgmSlider;
     [SerializeField] Slider sfxSlider;
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         float sound;
