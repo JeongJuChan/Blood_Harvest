@@ -1033,7 +1033,7 @@ MonoBehaviour:
   mob: {fileID: 907356262}
   player: {fileID: 1390982743}
   gameTime: 0
-  maxGameTime: 30
+  maxGameTime: 600
 --- !u!114 &474102367
 MonoBehaviour:
   m_ObjectHideFlags: 0
