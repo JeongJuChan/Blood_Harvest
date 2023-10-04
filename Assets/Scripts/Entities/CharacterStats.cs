@@ -17,6 +17,7 @@ public class CharacterStats
     [Range(1, 100)] public float maxHealth;
     [Range(1, 100)] public float currentHealth;
     [Range(1f, 20f)] public float speed;
+    public int maxExp = 100;
     public int exp;
     public int level = 1;
 
@@ -31,10 +32,11 @@ public class CharacterStats
 
     public void CheckLevelUp()
     {
-        if (exp >= 100)
+        if (exp >= maxExp)
         {
             level++;
-            exp -= 100;
+            exp -= maxExp;
+            maxExp += level * 10;
             levelupEvent?.Invoke();
         }
     }
