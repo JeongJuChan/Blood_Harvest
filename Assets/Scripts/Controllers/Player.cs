@@ -26,12 +26,17 @@ public class Player : MonoBehaviour, IDamagable
     {
         if (collision.collider.CompareTag("Enemy"))
             Damaged(minDamage);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("EnemyBullet"))
             Damaged(maxDamage);
+        if (collision.CompareTag("Item"))
+        {
+            SoundManager.instance.audioSources[2].Play();
+        }
     }
 
     public void Damaged(float damage)

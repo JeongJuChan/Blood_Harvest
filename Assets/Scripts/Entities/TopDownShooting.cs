@@ -120,6 +120,7 @@ public class TopDownShooting : MonoBehaviour
                 
                 _aimDirection = Quaternion.Euler(0, 0, angle) * projectileSpownPosition.right;
                 bullet.SetDirection(_aimDirection);
+                SoundManager.instance.audioSources[0].Play();
             }
             
             _elapsedTime = 0f;
