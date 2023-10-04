@@ -26,12 +26,14 @@ public class Player : MonoBehaviour, IDamagable
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Damaged(minDamage);
+        if (collision.collider.CompareTag("Enemy"))
+            Damaged(minDamage);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Damaged(maxDamage);
+        if (collision.CompareTag("EnemyBullet"))
+            Damaged(maxDamage);
     }
 
     public void Damaged(float damage)
