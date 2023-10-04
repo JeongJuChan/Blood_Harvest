@@ -17,9 +17,11 @@ public class GameManager : MonoBehaviour
     public float gameTime;
     public float maxGameTime = 10 * 60.0f;
 
+    [SerializeField] private float waitLevelUpClosedTime = 0.5f;
+
     private CharacterStatsHandler _statsHandler;
 
-    public event Action<int, int> expChangedEvent;
+    public event Action<int, int, int> expChangedEvent;
 
     private void Awake()
     {
@@ -42,9 +44,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ShowLevelState(int exp, int level)
+    public void ShowLevelState(int level, int exp, int maxExp)
     {
-        expChangedEvent?.Invoke(exp, level);
+        expChangedEvent?.Invoke(level, exp, maxExp);
     }
 
     public T GetInstance<T>(ref T t) where T : new()
@@ -63,5 +65,16 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1;
+    }
+
+    public void CheckRemainLevelup()
+    {
+        StartCoroutine(CoCheckLevelupRemained());
+    }
+
+    private IEnumerator CoCheckLevelupRemained()
+    {
+        yield return CoroutineRef.GetWaitForSeconds(waitLevelUpClosedTime);
+        _statsHandler.CheckLevelupRemained();
     }
 }

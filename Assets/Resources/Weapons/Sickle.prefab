@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2085a049c9dbfbc40b98a303f82eeb55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 25
+  moveSpeed: 45
   currentAngle: 0
   radius: 1
 --- !u!61 &1670858995228407704
