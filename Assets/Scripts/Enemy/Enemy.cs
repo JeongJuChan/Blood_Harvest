@@ -122,10 +122,21 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         _health = Mathf.Clamp(_health - damage, 0, _maxHealth);
 
+        if (_health > 0)
+        {
+            anim.SetTrigger("Hit");
+        }
+
         if (_health <= 0f)
         {
+            anim.SetBool("Dead", true);
             expEvent?.Invoke(_exp);
+            StartCoroutine(Wait());
             returnToPoolEvent?.Invoke(gameObject);
         }
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1.5f);
     }
 }
