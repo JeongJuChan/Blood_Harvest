@@ -17,7 +17,7 @@ public class CharacterStats
     [Range(1, 100)] public float maxHealth;
     [Range(1, 100)] public float currentHealth;
     [Range(1f, 20f)] public float speed;
-    public int maxExp = 100;
+    [SerializeField] public int maxExp = 100;
     public int exp;
     public int level = 1;
 
@@ -40,6 +40,6 @@ public class CharacterStats
             levelupEvent?.Invoke();
         }
 
-        GameManager.instance.ShowLevelState(level, exp % maxExp);
+        GameManager.instance.ShowLevelState(level, exp, maxExp);
     }
 }

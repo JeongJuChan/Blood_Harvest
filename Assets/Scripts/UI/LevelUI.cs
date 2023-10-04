@@ -8,11 +8,9 @@ public class LevelUI : MonoBehaviour
     [SerializeField] private Image expSlider;
     [SerializeField] private TextMeshProUGUI levelText;
 
-    private const float LEVEL_DIV = 0.01f;
-
     private void Start()
     {
-        UpdateLevelState(1, 0);
+        UpdateLevelState(1, 0, 100);
         GameManager.instance.expChangedEvent += UpdateLevelState;
     }
 
@@ -21,9 +19,10 @@ public class LevelUI : MonoBehaviour
         GameManager.instance.expChangedEvent -= UpdateLevelState;
     }
 
-    public void UpdateLevelState(int level, int exp)
+    public void UpdateLevelState(int level, int exp, int maxExp)
     {
-        expSlider.fillAmount = exp * LEVEL_DIV;
+        expSlider.fillAmount = (float)exp / maxExp;
+        Debug.Log($"exp : {exp} maxExp : {maxExp}");
         levelText.text = $"Level : {level}";
     }
 }

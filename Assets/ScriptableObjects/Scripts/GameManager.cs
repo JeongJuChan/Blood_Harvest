@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     private CharacterStatsHandler _statsHandler;
 
-    public event Action<int, int> expChangedEvent;
+    public event Action<int, int, int> expChangedEvent;
 
     private void Awake()
     {
@@ -44,9 +44,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ShowLevelState(int exp, int level)
+    public void ShowLevelState(int level, int exp, int maxExp)
     {
-        expChangedEvent?.Invoke(exp, level);
+        expChangedEvent?.Invoke(level, exp, maxExp);
     }
 
     public T GetInstance<T>(ref T t) where T : new()
