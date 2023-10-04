@@ -10,22 +10,23 @@ public class PlayerStatBar : MonoBehaviour
     [SerializeField] TextMeshProUGUI playerGold;
     [SerializeField] Image playerExpBar;
     CharacterStats player;
+
     private void Start()
     {
         player = GameManager.instance.player.GetComponent<CharacterStats>();
         playerLevel.text = "Lv. " + player.level.ToString();
-        playerExpBar.fillAmount = player.exp / 100f;
+        playerExpBar.fillAmount = player.exp / player.maxExp;
     }
     private void Update()
     {
-        playerExpBar.fillAmount = player.exp / 100f;
+        playerExpBar.fillAmount = player.exp / player.maxExp;
     }
     public void LevelUp()
     {
-        if(player.exp >= 100)
+        if(player.exp >= player.maxExp)
         {
             player.level++;
-            player.exp -= 100;
+            player.exp -= player.maxExp;
             playerLevel.text = "Lv. " + player.level.ToString();
         }
     }
