@@ -130,6 +130,7 @@ public class Enemy : MonoBehaviour, IDamagable
             isLive = false;
             cc.isTrigger = true;
             anim.SetBool("Dead", true);
+            SoundManager.instance.audioSources[1].Play();
             StartCoroutine(Wait());
             itemDropTable.ItemDrop(transform.position);
         }
