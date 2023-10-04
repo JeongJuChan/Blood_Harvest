@@ -23,7 +23,7 @@ public class CharacterStats
     [Header("Default Weapon Stats")]
     [Range(1f, 20f)] public float damage = 3;
     [Range(1f, 20f)] public float attackSpeed = 1;
-    [Range(1f, 20f)] public float count = 1;
+    [Range(1f, 20f)] public int count = 1;
 
     public AttackSO attackSO;
 

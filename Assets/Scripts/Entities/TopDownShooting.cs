@@ -18,6 +18,10 @@ public class TopDownShooting : MonoBehaviour
     private Queue<Bullet> _bullets = new Queue<Bullet>();
     [SerializeField] private int initCount = 10;
 
+    private int _shootingCount = 1;
+
+    [SerializeField] private float angleUnit = 15f;
+
 
     private void Awake()
     {
@@ -34,6 +38,24 @@ public class TopDownShooting : MonoBehaviour
     void Update()
     {
         Shoot();
+    }
+
+    public void UpdateBulletsDamage(float damage)
+    {
+        foreach (var bullet in _bullets)
+        {
+            bullet.UpdateDamage(damage);
+        } 
+    }
+
+    public void DecraseShootingDelay(float decreasingTime)
+    {
+        shootDelayTime -= decreasingTime;
+    }
+
+    public void UpdateShootingCount(int count)
+    {
+        _shootingCount = count;
     }
 
     private void Init()
@@ -54,22 +76,24 @@ public class TopDownShooting : MonoBehaviour
         _bullets.Enqueue(bullet);
     }
 
-    private void GetBullet()
+    private Bullet GetBullet()
     {
+        Bullet bullet = null;
+
+        if (_bullets.Count < initCount * 0.5f)
+        {
+            Init();
+        }
+
         if (_bullets.Count > 0)
         {
-            Bullet bullet = _bullets.Dequeue();
-            _aimDirection = projectileSpownPosition.right;
-            bullet.SetPosition(projectileSpownPosition.position);
-            bullet.SetDirection(_aimDirection);
+            bullet = _bullets.Dequeue();
+            
             bullet.SetDamage(_statHandler.CurrentStats.damage);
             bullet.gameObject.SetActive(true);
         }
-        else
-        {
-            CreateNewBullet();
-            GetBullet();
-        }
+
+        return bullet;
     }
 
     private void ReturnToPool(Bullet bullet)
@@ -82,7 +106,24 @@ public class TopDownShooting : MonoBehaviour
     {
         if (shootDelayTime < _elapsedTime)
         {
-            GetBullet();
+            for (int i = 0; i < _shootingCount; i++)
+            {
+                Bullet bullet = GetBullet();
+                bullet.SetPosition(projectileSpownPosition.position);
+                float angle = 0f;
+                if (_shootingCount % 2 == 0)
+                {
+                    angle = i % 2 == 0 ? (i + 1) * angleUnit : -(i + 1) * angleUnit;
+                }
+                else
+                {
+                    angle = i % 2 == 0 ? i * angleUnit : -i * angleUnit;
+                }
+                
+                _aimDirection = Quaternion.Euler(0, 0, angle) * projectileSpownPosition.right;
+                bullet.SetDirection(_aimDirection);
+            }
+            
             _elapsedTime = 0f;
         }
         else

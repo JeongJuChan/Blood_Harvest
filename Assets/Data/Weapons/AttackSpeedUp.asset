@@ -19,6 +19,6 @@ MonoBehaviour:
   level: 1
   icon: {fileID: 563336626, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   attack: 0
-  attackSpeed: 1.1
+  attackSpeed: 0.1
   count: 0
   scale: 0
