@@ -43,16 +43,19 @@ public class TopDownCharacterController : MonoBehaviour
 
     public void CallMoveEvent(Vector2 direction)
     {
-        OnMoveEvent?.Invoke(direction);
+        if (Stats.CurrentStats.currentHealth > 0)
+            OnMoveEvent?.Invoke(direction);
     }
 
     public void CallLookEvent(Vector2 direction)
     {
-        OnLookEvent?.Invoke(direction);
+        if (Stats.CurrentStats.currentHealth > 0)
+            OnLookEvent?.Invoke(direction);
     }
 
     public void CallAttackEvent()
     {
-        OnAttackEvent?.Invoke();
+        if (Stats.CurrentStats.currentHealth > 0)
+            OnAttackEvent?.Invoke();
     }
 }
