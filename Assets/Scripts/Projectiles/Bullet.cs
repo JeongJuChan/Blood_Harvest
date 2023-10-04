@@ -44,6 +44,11 @@ public class Bullet : MonoBehaviour
         transform.up = _direction;
     }
 
+    public void UpdateDamage(float damage)
+    {
+        _damage = damage;
+    }
+
     public void SetPosition(Vector3 position)
     {
         transform.position = position;
@@ -54,6 +59,10 @@ public class Bullet : MonoBehaviour
         if (_elapsedTime > disappearedTime)
         {
             returnToPoolEvent?.Invoke(this);
+        }
+        else
+        {
+            _elapsedTime += Time.deltaTime;
         }
 
         Vector2 tempVec = (moveSpeed * Time.deltaTime) * _direction;

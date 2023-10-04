@@ -7,6 +7,13 @@ public class PlayerWeaponHandler : MonoBehaviour
 {
     private WeaponManager _weaponManager;
 
+    private CharacterStatsHandler _statHandler;
+
+    private void Awake()
+    {
+        _statHandler = GetComponent<CharacterStatsHandler>();
+    }
+
     private void Start()
     {
         _weaponManager = GameManager.instance.Weapon;
@@ -60,8 +67,8 @@ public class PlayerWeaponHandler : MonoBehaviour
             if (weaponDataInstance.level < weaponDataInstance.maxLevel)
             {
                 // 기본 무기 스텟 전달
-                //PlayerStat stat
-                //stat.SetStat(weaponDataInstance.attack, weaponDataInstance.attackSpeed, weaponDataInstance.count);
+                _statHandler.UpdateDefaultWeaponUpgrade(
+                    weaponDataInstance.attack, weaponDataInstance.attackSpeed, weaponDataInstance.count);
                 weaponDataInstance.level++;
             }
         }

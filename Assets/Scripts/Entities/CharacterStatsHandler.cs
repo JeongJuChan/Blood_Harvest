@@ -9,9 +9,12 @@ public class CharacterStatsHandler : MonoBehaviour
     public CharacterStats CurrentStats { get; private set; }
     public List<CharacterStats> statsModifiers = new List<CharacterStats>();
 
+    private TopDownShooting _shooter;
+
     private void Awake()
     {
         UpdateCharacterStats();
+        _shooter = GetComponent<TopDownShooting>();
     }
 
     private void Start()
@@ -24,10 +27,34 @@ public class CharacterStatsHandler : MonoBehaviour
         CurrentStats.levelupEvent -= OnLevelUp;
     }
 
+    public void UpdateDefaultWeaponUpgrade(float damage, float attackSpeed, int count)
+    {
+        IncreaseDamage(damage);
+        IncreaseAttackSpeed(attackSpeed);
+        IncreaseAttackCount(count);
+    }
+
+    private void IncreaseAttackSpeed(float attackSpeed)
+    {
+        CurrentStats.attackSpeed += attackSpeed;
+        _shooter.DecraseShootingDelay(attackSpeed);
+    }
+
+    private void IncreaseDamage(float damage)
+    {
+        CurrentStats.damage += damage;
+        _shooter.UpdateBulletsDamage(CurrentStats.damage);
+    }
+
+    private void IncreaseAttackCount(int count)
+    {
+        CurrentStats.count += count;
+        _shooter.UpdateShootingCount(CurrentStats.count);
+    }
+
     public void ExpUp(int amount)
     {
         CurrentStats.exp += amount;
-        Debug.Log(CurrentStats.exp);
         CurrentStats.CheckLevelUp();
     }
 
@@ -63,7 +90,7 @@ public class CharacterStatsHandler : MonoBehaviour
         CurrentStats.speed = baseStats.speed;
     }
 
-
+    
 
     private void OnLevelUp()
     {
