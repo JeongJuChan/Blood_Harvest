@@ -37,6 +37,11 @@
 캐릭터 조작, 캐릭터 애니메이션
 #### UI 보조
 
+## 김민태
+### 기본 UI
+### 설정 기능
+### 기본 화면 구성
+
 # 게임 화면
 
 ![1](https://github.com/JeongJuChan/Blood_Harvest/assets/73785455/695652c0-ff7d-4c6e-b652-665a74918e9b)
