@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour, IDamagable
     public ItemDropTable itemDropTable;
 
     Rigidbody2D rb;
+    CapsuleCollider2D cc;
     SpriteRenderer spr;
     Animator anim;
 
@@ -34,6 +35,7 @@ public class Enemy : MonoBehaviour, IDamagable
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        cc = GetComponent<CapsuleCollider2D>();
         spr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
@@ -71,7 +73,7 @@ public class Enemy : MonoBehaviour, IDamagable
                 rb.velocity = Vector2.zero;
                 break;
             case "AcEnemy 3":
-                if (distance < 8.0f) rb.MovePosition(rb.position + (nextdir * 2.5f));
+                if (distance < 8.0f) rb.MovePosition(rb.position + (nextdir * 2.0f));
                 else rb.MovePosition(rb.position + nextdir);
                 rb.velocity = Vector2.zero;
                 break;
@@ -122,10 +124,23 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         _health = Mathf.Clamp(_health - damage, 0, _maxHealth);
 
+        if (_health > 0)
+        {
+            anim.SetTrigger("Hit");
+        }
+
         if (_health <= 0f)
         {
+            isLive = false;
+            cc.isTrigger = true;
+            anim.SetBool("Dead", true);
+            StartCoroutine(Wait());
             expEvent?.Invoke(_exp);
-            returnToPoolEvent?.Invoke(gameObject);
         }
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1.5f);
+        returnToPoolEvent?.Invoke(gameObject);
     }
 }
