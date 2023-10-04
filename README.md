@@ -22,10 +22,6 @@
 https://github.com/JeongJuChan/Blood_Harvest/blob/98b1ac2cbe34936907e6f9ffc26baf182526daf4/Assets/Scripts/Controllers/PlayerWeaponHandler.cs#L1
 https://github.com/JeongJuChan/Blood_Harvest/blob/98b1ac2cbe34936907e6f9ffc26baf182526daf4/Assets/Scripts/Managers/WeaponManager.cs#L1
 
-업그레이드 팝업
-https://github.com/JeongJuChan/Blood_Harvest/blob/98b1ac2cbe34936907e6f9ffc26baf182526daf4/Assets/Scripts/UI/UpgradeUI.cs#L1
-https://github.com/JeongJuChan/Blood_Harvest/blob/98b1ac2cbe34936907e6f9ffc26baf182526daf4/Assets/Scripts/UI/UpgradeItem.cs#L1
-
 업그레이드 무기
 https://github.com/JeongJuChan/Blood_Harvest/blob/98b1ac2cbe34936907e6f9ffc26baf182526daf4/Assets/Scripts/Shooters/Base/Shooter.cs#L1
 https://github.com/JeongJuChan/Blood_Harvest/blob/98b1ac2cbe34936907e6f9ffc26baf182526daf4/Assets/Scripts/Shooters/RakeShooter.cs#L1
@@ -39,12 +35,12 @@ https://github.com/JeongJuChan/Blood_Harvest/blob/98b1ac2cbe34936907e6f9ffc26baf
 
 기본 무기 업그레이드
 https://github.com/JeongJuChan/Blood_Harvest/blob/98b1ac2cbe34936907e6f9ffc26baf182526daf4/Assets/Scripts/Entities/CharacterStatsHandler.cs#L1
-![image](https://github.com/JeongJuChan/Blood_Harvest/assets/95285906/14a65954-bd19-4991-8c5d-1944ff009399)
 
 #### 팝업 UI
 팝업 UI를 구현하였습니다. (Show, Close, Order, IsExist)
 https://github.com/JeongJuChan/Blood_Harvest/blob/98b1ac2cbe34936907e6f9ffc26baf182526daf4/Assets/Scripts/Managers/UIManager.cs#L1
 https://github.com/JeongJuChan/Blood_Harvest/blob/98b1ac2cbe34936907e6f9ffc26baf182526daf4/Assets/Scripts/UI/UIBase.cs#L1
+![image](https://github.com/JeongJuChan/Blood_Harvest/assets/95285906/14a65954-bd19-4991-8c5d-1944ff009399)
 
 #### 기본 무기
 총알이 발사되는 것을 오브젝트 풀링으로 구현하였습니다.
