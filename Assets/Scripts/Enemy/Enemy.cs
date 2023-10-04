@@ -131,6 +131,7 @@ public class Enemy : MonoBehaviour, IDamagable
             cc.isTrigger = true;
             anim.SetBool("Dead", true);
             StartCoroutine(Wait());
+            itemDropTable.ItemDrop(transform.position);
         }
     }
     IEnumerator Wait()

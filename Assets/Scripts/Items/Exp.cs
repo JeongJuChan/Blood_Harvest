@@ -5,13 +5,13 @@ using UnityEngine;
 public class Exp : MonoBehaviour
 {
     [SerializeField] private int expAmount;
-    private CharacterStats stats;
+    private CharacterStatsHandler stats;
     private GameObject player;
     public bool magnetTime = false;
 
     private void Awake()
     {
-        stats = GameObject.FindWithTag("Player").GetComponent<CharacterStats>();
+        stats = GameObject.FindWithTag("Player").GetComponent<CharacterStatsHandler>();
         player = GameObject.FindWithTag("Player");
     }
 
@@ -19,7 +19,7 @@ public class Exp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            stats.exp += expAmount;
+            stats.ExpUp(expAmount);
             gameObject.SetActive(false);
         }
     }
