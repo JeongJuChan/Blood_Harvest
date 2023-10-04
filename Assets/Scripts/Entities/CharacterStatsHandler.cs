@@ -38,6 +38,13 @@ public class CharacterStatsHandler : MonoBehaviour
             CurrentStats.currentHealth = CurrentStats.maxHealth;
     }
 
+    public IEnumerator SpdBuff(float value, float duration)
+    {
+        CurrentStats.speed += value;
+        yield return new WaitForSecondsRealtime(duration);
+        CurrentStats.speed -= value;
+    }
+
     private void UpdateCharacterStats()
     {
         AttackSO attackSO = null;
