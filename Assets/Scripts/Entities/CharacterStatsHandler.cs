@@ -31,6 +31,13 @@ public class CharacterStatsHandler : MonoBehaviour
         CurrentStats.CheckLevelUp();
     }
 
+    public void Healing(float amount)
+    {
+        CurrentStats.currentHealth += amount;
+        if(CurrentStats.currentHealth > CurrentStats.maxHealth)
+            CurrentStats.currentHealth = CurrentStats.maxHealth;
+    }
+
     private void UpdateCharacterStats()
     {
         AttackSO attackSO = null;
