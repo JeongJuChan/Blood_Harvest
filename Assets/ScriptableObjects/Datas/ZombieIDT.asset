@@ -14,8 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - dropRate: 100
-    itemName: EXP
+    itemName: EXP_S
     itemPrefab: {fileID: 8279107844028001492, guid: f62bdadfd641ecc4baa919c41e7a0edb, type: 3}
-  - dropRate: 50
+  - dropRate: 20
+    itemName: EXP_M
+    itemPrefab: {fileID: 8279107844028001492, guid: dad30bc8a85a6e24d8ba0061fb23e452, type: 3}
+  - dropRate: 10
+    itemName: EXP_L
+    itemPrefab: {fileID: 8279107844028001492, guid: 4b11ae2e0aa3daf40b24b88a7d15c23a, type: 3}
+  - dropRate: 20
     itemName: Heal
     itemPrefab: {fileID: 8279107844028001492, guid: 4b11ae2e0aa3daf40b24b88a7d15c23a, type: 3}
+  - dropRate: 10
+    itemName: Haste
+    itemPrefab: {fileID: 8279107844028001492, guid: 82430f60121206146becbae6e58e1869, type: 3}
+  - dropRate: 5
+    itemName: Magnet
+    itemPrefab: {fileID: 8279107844028001492, guid: 0532296a697979c43990c809ea2e571c, type: 3}
+  - dropRate: 1
+    itemName: Box
+    itemPrefab: {fileID: 8279107844028001492, guid: b555a6217ecf95f4b89cdef9a3e99537, type: 3}
