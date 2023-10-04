@@ -18,7 +18,7 @@ public class MagnetField : MonoBehaviour
     IEnumerator MagnetLimit(Exp exp)
     {
         exp.magnetTime = true;
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSeconds(1.5f);
         exp.magnetTime = false;
         magnetTime = false;
     }
