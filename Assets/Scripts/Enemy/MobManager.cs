@@ -41,7 +41,6 @@ public class MobManager : MonoBehaviour
             zombieSelect = Instantiate(zombies[i], transform);
             Enemy enemy = zombieSelect.GetComponent<Enemy>();
             enemy.returnToPoolEvent += ReturnToPool;
-            enemy.expEvent += _statHandler.ExpUp;
             pools[i].Add(zombieSelect);
         }
 

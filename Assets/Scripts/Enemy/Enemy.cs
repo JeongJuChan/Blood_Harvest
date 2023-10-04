@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour, IDamagable
     private float _speed;
     private float _health;
     private float _maxHealth;
-    private int _exp;
     private float _attackTimer = 0;
     private float _attackRate = 2.0f;
     private float _bossattackTimer = 0;
@@ -30,7 +29,6 @@ public class Enemy : MonoBehaviour, IDamagable
     Animator anim;
 
     public event Action<GameObject> returnToPoolEvent;
-    public event Action<int> expEvent;
 
     private void Awake()
     {
@@ -107,7 +105,6 @@ public class Enemy : MonoBehaviour, IDamagable
     private void OnDestroy()
     {
         returnToPoolEvent = null;
-        expEvent = null;
     }
 
     public void Init(SpawnData data)
@@ -117,7 +114,6 @@ public class Enemy : MonoBehaviour, IDamagable
         _speed = data.zombieSpeed;
         _maxHealth = data.zombieHealth;
         _health = data.zombieHealth;
-        _exp = data.zombieExp;
     }
 
     public void Damaged(float damage)
@@ -135,7 +131,6 @@ public class Enemy : MonoBehaviour, IDamagable
             cc.isTrigger = true;
             anim.SetBool("Dead", true);
             StartCoroutine(Wait());
-            expEvent?.Invoke(_exp);
         }
     }
     IEnumerator Wait()
